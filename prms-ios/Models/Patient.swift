@@ -1,0 +1,69 @@
+//
+//  Patients.swift
+//  prms-ios
+//
+//  Created by Aananth C N on 15/04/24.
+//
+
+import Foundation
+
+
+struct MonthYear {
+    var month: Int
+    var year: Int
+    
+    init(month: Int, year: Int) {
+        self.month = month
+        self.year = year
+    }
+
+    func get_age() -> Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        
+        // Extract current year and month components
+        let currentYear = calendar.component(.year, from: currentDate)
+        let currentMonth = calendar.component(.month, from: currentDate)
+        
+        // Calculate age based on current date and birthdate
+        let birthYear = self.year
+        let birthMonth = self.month
+        
+        // Calculate age by comparing year and month
+        var age = currentYear - birthYear
+        
+        // Check if the birthday hasn't occurred yet this year
+        if currentMonth < birthMonth {
+            age -= 1
+        }
+        
+        return age
+    }
+}
+
+
+struct Patient: Identifiable {
+    var id: UUID
+    var name: String
+    var phone: String
+    var email: String
+    var gender: String
+    var moye: MonthYear
+    var age: Int
+    
+    init(id: UUID = UUID(), name: String, phone: String, email: String, gender: String, moye: MonthYear) {
+        self.id = id
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.gender = gender
+        self.moye = moye
+        self.age = moye.get_age()
+    }
+
+    // sample data for testing
+    static let sampleMoYe: MonthYear = MonthYear(month: 12, year: 1976)
+    static let samplePatient: Patient = Patient(name: "Aananth C N", phone: "9876543210", email: "a@b.com", gender: "Male", moye: sampleMoYe)
+}
+
+
