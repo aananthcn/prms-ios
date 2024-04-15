@@ -12,6 +12,7 @@
 		0306BC822BCC4A3800A25768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC812BCC4A3800A25768 /* Assets.xcassets */; };
 		0306BC852BCC4A3800A25768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */; };
 		0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC902BCC640700A25768 /* PrmsUsers.swift */; };
+		03D2851C2BCD94DD001C522C /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2851B2BCD94DD001C522C /* PatientListView.swift */; };
 		03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5B2BCCF0130077C7FE /* Patient.swift */; };
 		03D31F5E2BCCF4E10077C7FE /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5D2BCCF4E10077C7FE /* PatientView.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		0306BC812BCC4A3800A25768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0306BC902BCC640700A25768 /* PrmsUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsUsers.swift; sourceTree = "<group>"; };
+		03D2851B2BCD94DD001C522C /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
 		03D31F5B2BCCF0130077C7FE /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		03D31F5D2BCCF4E10077C7FE /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 			children = (
 				0306BC7F2BCC4A3700A25768 /* MainView.swift */,
 				03D31F5D2BCCF4E10077C7FE /* PatientView.swift */,
+				03D2851B2BCD94DD001C522C /* PatientListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				0306BC802BCC4A3700A25768 /* MainView.swift in Sources */,
 				03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */,
 				0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */,
+				03D2851C2BCD94DD001C522C /* PatientListView.swift in Sources */,
 				0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

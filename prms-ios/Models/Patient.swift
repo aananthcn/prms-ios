@@ -62,8 +62,12 @@ struct Patient: Identifiable {
     }
 
     // sample data for testing
-    static let sampleMoYe: MonthYear = MonthYear(month: 12, year: 1976)
-    static let samplePatient: Patient = Patient(name: "Aananth C N", phone: "9876543210", email: "a@b.com", gender: "Male", moye: sampleMoYe)
+    static let samplePatients: [Patient] = [
+        Patient(name: "Donald Trump", phone: "1234567890", email: "trump@example.com", gender: "Male", moye: MonthYear(month: 6, year: 1946)),
+        Patient(name: "Angela Merkel", phone: "1234567891", email: "angela@example.com", gender: "Female", moye: MonthYear(month: 7, year: 1954)),
+        Patient(name: "Vladimir Putin", phone: "1234567892", email: "putin@example.com", gender: "Male", moye: MonthYear(month: 10, year: 1952)),
+        Patient(name: "X1 Jinping", phone: "1234567893", email: "jinping@example.com", gender: "Male", moye: MonthYear(month: 6, year: 1953))
+    ]
 }
 
 

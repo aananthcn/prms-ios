@@ -19,11 +19,9 @@ struct PatientView: View {
                 Spacer()
                 Text(patient.age.codingKey.stringValue)
             }
-            Spacer()
             HStack {
                 Label("\(patient.phone)", systemImage: "phone")
                 Spacer()
-                //Label("\(patient.gender)", systemImage: "male")
                 if patient.gender == "Male" {
                     Text("♂").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 } else {
@@ -31,15 +29,14 @@ struct PatientView: View {
                 }
             }
         } // VStack
-        .padding()
-        .background(Color(red: 0.9, green: 0.95, blue: 0))
+        .padding(.horizontal, 0.1)
     }
 }
 
 
 
 #Preview {
-    PatientView(patient: Patient.samplePatient)
+    PatientView(patient: Patient.samplePatients[0])
         .previewLayout(.fixed(width: 400, height: 60))
 }
 
