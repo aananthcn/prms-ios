@@ -8,19 +8,36 @@
 import SwiftUI
 
 struct PatientListView: View {
-    let patients: [Patient]
+    @State var patients: [Patient]
+    @State private var isPresentingPatientView = false
+    @State var pat_search: String
 
     var body: some View {
         NavigationStack {
             List(patients) { patient in
-                PatientView(patient: patient)
+                PatientCard(patient: patient)
             }
             .navigationTitle("Patients List")
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    TextField("Search", text: $pat_search)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal, 2) // Add horizontal padding
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action:{
+                        isPresentingPatientView = true
+                    }){
+                        Image(systemName: "plus")
+                    }
+                    .accessibilityLabel("New Patient")
+                }
+            }
         }
     }
 }
 
 
 #Preview {
-    PatientListView(patients: Patient.samplePatients)
+    PatientListView(patients: Patient.samplePatients, pat_search: "Search")
 }

@@ -14,7 +14,7 @@
 		0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC902BCC640700A25768 /* PrmsUsers.swift */; };
 		03D2851C2BCD94DD001C522C /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2851B2BCD94DD001C522C /* PatientListView.swift */; };
 		03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5B2BCCF0130077C7FE /* Patient.swift */; };
-		03D31F5E2BCCF4E10077C7FE /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5D2BCCF4E10077C7FE /* PatientView.swift */; };
+		03D31F5E2BCCF4E10077C7FE /* PatientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		0306BC902BCC640700A25768 /* PrmsUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsUsers.swift; sourceTree = "<group>"; };
 		03D2851B2BCD94DD001C522C /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
 		03D31F5B2BCCF0130077C7FE /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
-		03D31F5D2BCCF4E10077C7FE /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
+		03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				0306BC7F2BCC4A3700A25768 /* MainView.swift */,
-				03D31F5D2BCCF4E10077C7FE /* PatientView.swift */,
+				03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */,
 				03D2851B2BCD94DD001C522C /* PatientListView.swift */,
 			);
 			path = Views;
@@ -173,7 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D31F5E2BCCF4E10077C7FE /* PatientView.swift in Sources */,
+				03D31F5E2BCCF4E10077C7FE /* PatientCard.swift in Sources */,
 				0306BC802BCC4A3700A25768 /* MainView.swift in Sources */,
 				03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */,
 				0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */,

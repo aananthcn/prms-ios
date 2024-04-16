@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PatientView: View {
+struct PatientCard: View {
     let patient: Patient
     
     var body: some View {
@@ -36,7 +36,7 @@ struct PatientView: View {
 
 
 #Preview {
-    PatientView(patient: Patient.samplePatients[0])
+    PatientCard(patient: Patient.samplePatients[0])
         .previewLayout(.fixed(width: 400, height: 60))
 }
 

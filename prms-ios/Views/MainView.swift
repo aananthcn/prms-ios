@@ -30,10 +30,11 @@ struct MainView: View {
                 .pickerStyle(WheelPickerStyle()) // Customize picker style as needed
                 
                 Text("Welcome: \(doctors.doctors[selectedDoctorIndex])")
-                    .padding()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    .padding(1.0)
+                    .font(.headline)
+                NavigationLink(destination: PatientListView(patients: Patient.samplePatients, pat_search: "")) {
                     Text("Login")
-                })
+                }
                 Spacer()
             }
             .padding()
@@ -44,7 +45,7 @@ struct MainView: View {
                 }){
                     Image(systemName: "plus")
                 }
-                .accessibilityLabel("New Docter")
+                .accessibilityLabel("New Doctor")
             }
         }
     }
