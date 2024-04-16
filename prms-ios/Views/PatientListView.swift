@@ -7,27 +7,39 @@
 
 import SwiftUI
 
+
 struct PatientListView: View {
     @State var patients: [Patient]
     @State private var isPresentingPatientView = false
-    @State var pat_search: String
+    @State var searchText: String = "" // State to store search text
+
+    // Computed property to filter patients based on search text
+    var filteredPatients: [Patient] {
+        if searchText.isEmpty {
+            // If search text is empty, return all patients
+            return patients
+        } else {
+            // Filter patients whose names contain the search text (case-insensitive)
+            return patients.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
 
     var body: some View {
-        NavigationStack {
-            List(patients) { patient in
+        NavigationView {
+            List(filteredPatients) { patient in
                 PatientCard(patient: patient)
             }
             .navigationTitle("Patients List")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    TextField("Search", text: $pat_search)
+                    TextField("Search", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal, 2) // Add horizontal padding
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action:{
+                    Button(action: {
                         isPresentingPatientView = true
-                    }){
+                    }) {
                         Image(systemName: "plus")
                     }
                     .accessibilityLabel("New Patient")
@@ -38,6 +50,7 @@ struct PatientListView: View {
 }
 
 
+
 #Preview {
-    PatientListView(patients: Patient.samplePatients, pat_search: "Search")
+    PatientListView(patients: Patient.samplePatients, searchText: "")
 }

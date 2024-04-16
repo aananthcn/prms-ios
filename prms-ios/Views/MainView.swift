@@ -32,7 +32,7 @@ struct MainView: View {
                 Text("Welcome: \(doctors.doctors[selectedDoctorIndex])")
                     .padding(1.0)
                     .font(.headline)
-                NavigationLink(destination: PatientListView(patients: Patient.samplePatients, pat_search: "")) {
+                NavigationLink(destination: PatientListView(patients: Patient.samplePatients, searchText: "")) {
                     Text("Login")
                 }
                 Spacer()
