@@ -21,19 +21,19 @@ struct MainView: View {
                 Image(systemName: "stethoscope")
                     .imageScale(.large)
                     .foregroundStyle(.tint)
-                //Spacer()
                 Picker("Doctors", selection: $selectedDoctorIndex) {
                     ForEach(0..<doctors.doctors.count, id: \.self) { index in
                         Text(doctors.doctors[index])
                     }
                 }
                 .pickerStyle(WheelPickerStyle()) // Customize picker style as needed
-                
+
+                Spacer()
                 Text("Welcome: \(doctors.doctors[selectedDoctorIndex])")
                     .padding(1.0)
                     .font(.headline)
                 NavigationLink(destination: PatientListView(patients: Patient.samplePatients, searchText: "")) {
-                    Text("Login")
+                    Text("Login").font(.headline)
                 }
                 Spacer()
             }

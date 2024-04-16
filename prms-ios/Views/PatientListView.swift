@@ -27,7 +27,9 @@ struct PatientListView: View {
     var body: some View {
         NavigationView {
             List(filteredPatients) { patient in
-                PatientCard(patient: patient)
+                NavigationLink(destination: PatientView(patient: patient)) {
+                    PatientCard(patient: patient)
+                }
             }
             .navigationTitle("Patients List")
             .toolbar {
