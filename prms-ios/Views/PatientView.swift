@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PatientView: View {
-    var patient: Patient
+    //var patient: Patient
+    @Binding var patient: Patient  // Binding to patient data
+    
+    @State private var editingPatient = Patient.emptyPatient
+    @State private var isPresentingEditView = false
 
     // Array of month names indexed by month number (0-based)
     let monthAbbreviations = [
@@ -16,6 +20,13 @@ struct PatientView: View {
         "Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ]
+   
+    /*
+    init(patient: Binding<Patient>) {
+        _patient = patient
+        _editingPatient = State(initialValue: patient.wrappedValue)
+    }
+    */
 
     var body: some View {
         List {
@@ -31,6 +42,29 @@ struct PatientView: View {
         .navigationTitle(patient.name)
         .toolbar {
             Button("Edit") {
+                isPresentingEditView = true
+                // Assign editingPatient with a copy of the current patient
+                editingPatient = patient
+            }
+        }
+        .sheet(isPresented: $isPresentingEditView) {
+            NavigationStack {
+                PatientEditView(patient: editingPatient)
+                    .navigationTitle(patient.name)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") {
+                                isPresentingEditView = false
+                            }
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") {
+                                isPresentingEditView = false
+                                // original patient <== edited patient
+                                patient = editingPatient
+                            }
+                        }
+                    }
             }
         }
     }
@@ -47,5 +81,5 @@ struct PatientView: View {
 
 
 #Preview {
-    PatientView(patient: Patient.samplePatients[0])
+    PatientView(patient: .constant(Patient.samplePatients[0]))
 }

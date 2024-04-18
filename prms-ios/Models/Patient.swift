@@ -42,7 +42,7 @@ struct MonthYear {
 }
 
 
-struct Patient: Identifiable {
+struct Patient: Identifiable, Observable {
     var id: UUID
     var name: String
     var phone: String
@@ -68,6 +68,11 @@ struct Patient: Identifiable {
         Patient(name: "Vladimir Putin", phone: "1234567892", email: "putin@example.com", gender: "Male", moye: MonthYear(month: 10, year: 1952)),
         Patient(name: "Xi Jinping", phone: "1234567893", email: "jinping@example.com", gender: "Male", moye: MonthYear(month: 6, year: 1953))
     ]
+    
+    // empty patient for editing view
+    static var emptyPatient: Patient {
+        Patient(name: "", phone: "", email: "", gender: "Male", moye: MonthYear(month: 1, year: 1970))
+    }
 }
 
 
