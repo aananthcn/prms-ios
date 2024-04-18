@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct PatientView: View {
-    //var patient: Patient
     @Binding var patient: Patient  // Binding to patient data
-    
-    @State private var editingPatient = Patient.emptyPatient
     @State private var isPresentingEditView = false
 
     // Array of month names indexed by month number (0-based)
@@ -21,13 +18,6 @@ struct PatientView: View {
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ]
    
-    /*
-    init(patient: Binding<Patient>) {
-        _patient = patient
-        _editingPatient = State(initialValue: patient.wrappedValue)
-    }
-    */
-
     var body: some View {
         List {
             Section(header: Text("Patient Info")) {
@@ -35,7 +25,7 @@ struct PatientView: View {
                 Label("\(patient.phone)", systemImage: "phone")
                 Label("\(patient.email)", systemImage: "mail")
                 HStack {
-                    Label(abbreviatedMonth(for:patient.moye.month)+" - \(patient.moye.year)",systemImage: "calendar")
+                    Label(abbreviatedMonth(for:patient.month)+" - \(patient.year)",systemImage: "calendar")
                 }
             }
         }
@@ -43,14 +33,12 @@ struct PatientView: View {
         .toolbar {
             Button("Edit") {
                 isPresentingEditView = true
-                // Assign editingPatient with a copy of the current patient
-                editingPatient = patient
             }
         }
         .sheet(isPresented: $isPresentingEditView) {
             NavigationStack {
-                PatientEditView(patient: editingPatient)
-                    .navigationTitle(patient.name)
+                PatientEditView(patient: $patient)
+                    .navigationTitle($patient.name)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Cancel") {
@@ -60,8 +48,6 @@ struct PatientView: View {
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Done") {
                                 isPresentingEditView = false
-                                // original patient <== edited patient
-                                patient = editingPatient
                             }
                         }
                     }

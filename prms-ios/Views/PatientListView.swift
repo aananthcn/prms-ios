@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct PatientListView: View {
-    @State var patients: [Patient]
+    //@State var patients: [Patient]
+    @Binding var patients: [Patient]
     @State private var isPresentingPatientView = false
-    //@State private var selectedPatient: Patient? = nil
     @State var searchText: String = "" // State to store search text
 
     // Computed property to filter patients based on search text
@@ -27,9 +27,9 @@ struct PatientListView: View {
 
     var body: some View {
         NavigationView {
-            List(filteredPatients, id: \.id) { patient in
-                NavigationLink(destination: PatientView(patient: Binding.constant(patient))) {
-                    PatientCard(patient: patient)
+            List(filteredPatients) { patient in
+                NavigationLink(destination: PatientView(patient: $patients[patients.firstIndex(of: patient)!])) {
+                                PatientCard(patient: patient)
                 }
             }
             .navigationTitle("Patients List")
@@ -55,5 +55,5 @@ struct PatientListView: View {
 
 
 #Preview {
-    PatientListView(patients: Patient.samplePatients, searchText: "")
+    PatientListView(patients: .constant(Patient.samplePatients), searchText: "")
 }

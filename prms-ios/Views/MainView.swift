@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MainView: View {
     var doctors: PrmsUsers  // Ensure doctors is of type PrmsUsers
+    @Binding var patients: [Patient]
+
     @State private var selectedDoctorIndex = 0  // State to track selected doctor index
     @State private var isPresentingDoctorView = false
     
@@ -32,7 +34,7 @@ struct MainView: View {
                 Text("Welcome: \(doctors.doctors[selectedDoctorIndex])")
                     .padding(1.0)
                     .font(.headline)
-                NavigationLink(destination: PatientListView(patients: Patient.samplePatients, searchText: "")) {
+                NavigationLink(destination: PatientListView(patients: $patients, searchText: "")) {
                     Text("Login").font(.headline)
                 }
                 Spacer()
@@ -53,5 +55,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(doctors: PrmsUsers.sampleUsers)
+    MainView(doctors: PrmsUsers.sampleUsers, patients: .constant(Patient.samplePatients))
 }

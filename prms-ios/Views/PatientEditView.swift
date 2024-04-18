@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct PatientEditView: View {
-    //@Binding var patient: Patient
-    @State var patient: Patient
-
+    @Binding var patient: Patient
+    
     var body: some View {
         Form {
             Section(header: Text("Edit Patient Details")) {
@@ -20,11 +19,11 @@ struct PatientEditView: View {
                 HStack {
                     // Convert Int to String when binding to TextField
                     TextField("Birth Year", text: Binding(
-                        get: { String(patient.moye.year) }, // Convert Int to String
+                        get: { String(patient.year) }, // Convert Int to String
                         set: { newValue in
                             // Attempt to convert String back to Int
                             if let newYear = Int(newValue) {
-                                patient.moye.year = newYear
+                                patient.year = newYear
                             }
                         }
                     ))
@@ -32,11 +31,11 @@ struct PatientEditView: View {
                     
                     // Convert Int to String when binding to TextField
                     TextField("Birth Month", text: Binding(
-                        get: { String(patient.moye.month) }, // Convert Int to String
+                        get: { String(patient.month) }, // Convert Int to String
                         set: { newValue in
                             // Attempt to convert String back to Int
                             if let newYear = Int(newValue) {
-                                patient.moye.year = newYear
+                                patient.year = newYear
                             }
                         }
                     ))
@@ -53,5 +52,5 @@ struct PatientEditView: View {
 
 
 #Preview {
-    PatientEditView(patient: Patient.samplePatients[0])
+    PatientEditView(patient: .constant(Patient.samplePatients[0]))
 }
