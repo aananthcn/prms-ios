@@ -15,7 +15,7 @@ struct prms_iosApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView(doctors: users, patients: $store.patients) {
+            LoginView(doctors: users, patients: $store.patients) {
                 Task {
                     // Closure for saving data
                     do {

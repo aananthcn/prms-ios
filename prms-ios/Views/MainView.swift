@@ -1,65 +1,59 @@
 //
-//  ContentView.swift
+//  PatientListView.swift
 //  prms-ios
 //
-//  Created by Aananth C N on 14/04/24.
+//  Created by Aananth C N on 15/04/24.
 //
-
 
 import SwiftUI
 
+
 struct MainView: View {
-    var doctors: PrmsUsers  // Ensure doctors is of type PrmsUsers
+    //@State var patients: [Patient]
     @Binding var patients: [Patient]
+    @State private var isPresentingPatientView = false
+    @State var searchText: String = "" // State to store search text
 
-    @State private var selectedDoctorIndex = 0  // State to track selected doctor index
-    @State private var isPresentingDoctorView = false
-    
-    @Environment(\.scenePhase) private var scenePhase
-    let saveAction: ()->Void
+    // Computed property to filter patients based on search text
+    var filteredPatients: [Patient] {
+        if searchText.isEmpty {
+            // If search text is empty, return all patients
+            return patients
+        } else {
+            // Filter patients whose names contain the search text (case-insensitive)
+            return patients.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
 
-    
     var body: some View {
-        NavigationStack {
-            VStack {
-                Spacer()
-                Image(systemName: "stethoscope")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Picker("Doctors", selection: $selectedDoctorIndex) {
-                    ForEach(0..<doctors.doctors.count, id: \.self) { index in
-                        Text(doctors.doctors[index])
-                    }
+        NavigationView {
+            List(filteredPatients) { patient in
+                NavigationLink(destination: PatientView(patient: $patients[patients.firstIndex(of: patient)!])) {
+                                PatientCard(patient: patient)
                 }
-                .pickerStyle(WheelPickerStyle()) // Customize picker style as needed
-
-                Spacer()
-                Text("Welcome: \(doctors.doctors[selectedDoctorIndex])")
-                    .padding(1.0)
-                    .font(.headline)
-                NavigationLink(destination: PatientListView(patients: $patients, searchText: "")) {
-                    Text("Login").font(.headline)
-                }
-                Spacer()
             }
-            .padding()
-            .navigationTitle("Arutjothi PRMS")
+            .navigationTitle("Patients List")
             .toolbar {
-                Button(action:{
-                    isPresentingDoctorView = true
-                }){
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .bottomBar) {
+                    TextField("Search", text: $searchText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal, 2) // Add horizontal padding
                 }
-                .accessibilityLabel("New Doctor")
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        isPresentingPatientView = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .accessibilityLabel("New Patient")
+                }
             }
-        } // NavigationStack
-        .onChange(of: scenePhase) {oldScenePhase, newScenePhase in
-            if newScenePhase == .inactive { saveAction() }
         }
     }
 }
 
 
+
 #Preview {
-    MainView(doctors: PrmsUsers.sampleUsers, patients: .constant(Patient.samplePatients), saveAction: {})
+    MainView(patients: .constant(Patient.samplePatients), searchText: "")
 }
