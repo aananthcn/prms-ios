@@ -11,10 +11,11 @@
 		0306BC802BCC4A3700A25768 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC7F2BCC4A3700A25768 /* LoginView.swift */; };
 		0306BC822BCC4A3800A25768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC812BCC4A3800A25768 /* Assets.xcassets */; };
 		0306BC852BCC4A3800A25768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */; };
-		0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC902BCC640700A25768 /* PrmsUsers.swift */; };
+		0306BC912BCC640700A25768 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC902BCC640700A25768 /* Doctor.swift */; };
 		0331F0B62BCEEB16003CFBB5 /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B52BCEEB16003CFBB5 /* PatientView.swift */; };
 		0331F0B82BCF7E88003CFBB5 /* PatientEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */; };
 		0331F0BA2BD142BC003CFBB5 /* PrmsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B92BD142BC003CFBB5 /* PrmsStore.swift */; };
+		0331F0BC2BD283F8003CFBB5 /* DoctorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0BB2BD283F8003CFBB5 /* DoctorListView.swift */; };
 		03D2851C2BCD94DD001C522C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2851B2BCD94DD001C522C /* MainView.swift */; };
 		03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5B2BCCF0130077C7FE /* Patient.swift */; };
 		03D31F5E2BCCF4E10077C7FE /* PatientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */; };
@@ -26,10 +27,11 @@
 		0306BC7F2BCC4A3700A25768 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0306BC812BCC4A3800A25768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0306BC902BCC640700A25768 /* PrmsUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsUsers.swift; sourceTree = "<group>"; };
+		0306BC902BCC640700A25768 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		0331F0B52BCEEB16003CFBB5 /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
 		0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientEditView.swift; sourceTree = "<group>"; };
 		0331F0B92BD142BC003CFBB5 /* PrmsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsStore.swift; sourceTree = "<group>"; };
+		0331F0BB2BD283F8003CFBB5 /* DoctorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListView.swift; sourceTree = "<group>"; };
 		03D2851B2BCD94DD001C522C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		03D31F5B2BCCF0130077C7FE /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCard.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		0306BC8C2BCC4A7200A25768 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0331F0BB2BD283F8003CFBB5 /* DoctorListView.swift */,
 				0306BC7F2BCC4A3700A25768 /* LoginView.swift */,
 				03D2851B2BCD94DD001C522C /* MainView.swift */,
 				03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */,
@@ -98,9 +101,9 @@
 		0306BC8D2BCC4A9E00A25768 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0306BC902BCC640700A25768 /* Doctor.swift */,
 				03D31F5B2BCCF0130077C7FE /* Patient.swift */,
 				0331F0B92BD142BC003CFBB5 /* PrmsStore.swift */,
-				0306BC902BCC640700A25768 /* PrmsUsers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,8 +190,9 @@
 				03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */,
 				0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */,
 				03D2851C2BCD94DD001C522C /* MainView.swift in Sources */,
+				0331F0BC2BD283F8003CFBB5 /* DoctorListView.swift in Sources */,
 				0331F0BA2BD142BC003CFBB5 /* PrmsStore.swift in Sources */,
-				0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */,
+				0306BC912BCC640700A25768 /* Doctor.swift in Sources */,
 				0331F0B82BCF7E88003CFBB5 /* PatientEditView.swift in Sources */,
 				0331F0B62BCEEB16003CFBB5 /* PatientView.swift in Sources */,
 			);

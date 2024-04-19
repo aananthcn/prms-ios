@@ -10,12 +10,12 @@ import SwiftUI
 
 @main
 struct prms_iosApp: App {
-    @State var users = PrmsUsers.sampleUsers
+    @State var users = Doctor.sampleDoctors
     @StateObject private var store = PrmsStore()
 
     var body: some Scene {
         WindowGroup {
-            LoginView(doctors: users, patients: $store.patients) {
+            LoginView(doctors: $users, patients: $store.patients) {
                 Task {
                     // Closure for saving data
                     do {

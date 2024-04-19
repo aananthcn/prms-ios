@@ -9,10 +9,12 @@ import SwiftUI
 
 
 struct MainView: View {
-    //@State var patients: [Patient]
     @Binding var patients: [Patient]
+    @Binding var doctors: [Doctor]
+
     @State private var isPresentingPatientView = false
-    @State var searchText: String = "" // State to store search text
+    @State private var isPresentingDoctorsView = false
+    @State private var searchText: String = "" // State to store search text
 
     // Computed property to filter patients based on search text
     var filteredPatients: [Patient] {
@@ -41,12 +43,23 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
+                        isPresentingDoctorsView = true
+                    }) {
+                        Image(systemName: "stethoscope")
+                    }
+                    .accessibilityLabel("View Doctors")
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
                         isPresentingPatientView = true
                     }) {
                         Image(systemName: "plus")
                     }
                     .accessibilityLabel("New Patient")
                 }
+            }
+            .sheet(isPresented: $isPresentingDoctorsView) {
+                DoctorListView(isPresentingDoctorsView: $isPresentingDoctorsView, doctors: $doctors)
             }
         }
     }
@@ -55,5 +68,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(patients: .constant(Patient.samplePatients), searchText: "")
+    MainView(patients: .constant(Patient.samplePatients), doctors: .constant(Doctor.sampleDoctors))
 }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    var doctors: PrmsUsers  // Ensure doctors is of type PrmsUsers
+    @Binding var doctors: [Doctor]
     @Binding var patients: [Patient]
 
     @State private var selectedDoctorIndex = 0  // State to track selected doctor index
@@ -27,17 +27,17 @@ struct LoginView: View {
                     .imageScale(.large)
                     .foregroundStyle(.tint)
                 Picker("Doctors", selection: $selectedDoctorIndex) {
-                    ForEach(0..<doctors.doctors.count, id: \.self) { index in
-                        Text(doctors.doctors[index])
+                    ForEach(doctors.indices, id: \.self) { index in
+                        Text(doctors[index].name) // Display doctor's name in the Picker
                     }
                 }
                 .pickerStyle(WheelPickerStyle()) // Customize picker style as needed
 
                 Spacer()
-                Text("Welcome: \(doctors.doctors[selectedDoctorIndex])")
+                Text("Welcome: \(doctors[selectedDoctorIndex].name)")
                     .padding(1.0)
                     .font(.headline)
-                NavigationLink(destination: MainView(patients: $patients, searchText: "")) {
+                NavigationLink(destination: MainView(patients: $patients, doctors: $doctors)) {
                     Text("Login").font(.headline)
                 }
                 Spacer()
@@ -61,5 +61,5 @@ struct LoginView: View {
 
 
 #Preview {
-    LoginView(doctors: PrmsUsers.sampleUsers, patients: .constant(Patient.samplePatients), saveAction: {})
+    LoginView(doctors: .constant(Doctor.sampleDoctors), patients: .constant(Patient.samplePatients), saveAction: {})
 }
