@@ -14,9 +14,18 @@ struct PatientEditView: View {
         Form {
             Section(header: Text("Edit Patient Details")) {
                 TextField("Patient Name", text: $patient.name)
-                TextField("Male / Female", text: $patient.gender)
+                //TextField("Male / Female", text: $patient.gender)
+                Picker("Gender", selection: $patient.gender) {
+                                Text("Male").tag("Male")
+                                Text("Female").tag("Female")
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                            .padding()
                 
                 HStack {
+                    // Label
+                    Text("Year:").font(.caption2)
+
                     // Convert Int to String when binding to TextField
                     TextField("Birth Year", text: Binding(
                         get: { String(patient.year) }, // Convert Int to String
@@ -28,7 +37,10 @@ struct PatientEditView: View {
                         }
                     ))
                     .keyboardType(.numberPad) // Use numeric keyboard for year input
-                    
+
+                    // Label
+                    Text("Month [1-12]:").font(.caption2)
+
                     // Convert Int to String when binding to TextField
                     TextField("Birth Month", text: Binding(
                         get: { String(patient.month) }, // Convert Int to String
@@ -43,6 +55,7 @@ struct PatientEditView: View {
                 }
                 
                 TextField("Phone number", text: $patient.phone)
+                    .keyboardType(.numberPad)
                 TextField("Email", text: $patient.email)
             }
         }
