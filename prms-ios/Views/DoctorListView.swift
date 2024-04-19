@@ -15,8 +15,10 @@ struct DoctorListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach (doctors) { doctor in
-                    Label(doctor.name, systemImage: "person")
+                ForEach ($doctors) { $doctor in
+                    NavigationLink(destination: DoctorView(doctor: $doctor)) {
+                        Label(doctor.name, systemImage: "person")
+                    }
                 }
             }
             .navigationTitle("Doctors")
