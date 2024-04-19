@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-class PatientStore: ObservableObject {
+class PrmsStore: ObservableObject {
     @Published var patients: [Patient] = []
     
     private static func fileURL() throws -> URL {
@@ -23,15 +23,11 @@ class PatientStore: ObservableObject {
         let task = Task<[Patient], Error> {
             let fileURL = try Self.fileURL()
             guard let data = try? Data(contentsOf: fileURL) else {
-                //return []
-                //TODO: The above lines above and below will be fixed after store() fn is implemented
-                return Patient.samplePatients
+                return []
             }
             
             let patientsData = try JSONDecoder().decode([Patient].self, from: data)
-            //return patientsData
-            //TODO: The above lines above and below will be fixed after store() fn is implemented
-            return Patient.samplePatients
+            return patientsData
         }
         
         let patients = try await task.value

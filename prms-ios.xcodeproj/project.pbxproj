@@ -14,7 +14,7 @@
 		0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC902BCC640700A25768 /* PrmsUsers.swift */; };
 		0331F0B62BCEEB16003CFBB5 /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B52BCEEB16003CFBB5 /* PatientView.swift */; };
 		0331F0B82BCF7E88003CFBB5 /* PatientEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */; };
-		0331F0BA2BD142BC003CFBB5 /* PatientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B92BD142BC003CFBB5 /* PatientStore.swift */; };
+		0331F0BA2BD142BC003CFBB5 /* PrmsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B92BD142BC003CFBB5 /* PrmsStore.swift */; };
 		03D2851C2BCD94DD001C522C /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D2851B2BCD94DD001C522C /* PatientListView.swift */; };
 		03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5B2BCCF0130077C7FE /* Patient.swift */; };
 		03D31F5E2BCCF4E10077C7FE /* PatientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */; };
@@ -29,7 +29,7 @@
 		0306BC902BCC640700A25768 /* PrmsUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsUsers.swift; sourceTree = "<group>"; };
 		0331F0B52BCEEB16003CFBB5 /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
 		0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientEditView.swift; sourceTree = "<group>"; };
-		0331F0B92BD142BC003CFBB5 /* PatientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientStore.swift; sourceTree = "<group>"; };
+		0331F0B92BD142BC003CFBB5 /* PrmsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsStore.swift; sourceTree = "<group>"; };
 		03D2851B2BCD94DD001C522C /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
 		03D31F5B2BCCF0130077C7FE /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCard.swift; sourceTree = "<group>"; };
@@ -88,9 +88,9 @@
 			children = (
 				0306BC7F2BCC4A3700A25768 /* MainView.swift */,
 				03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */,
+				0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */,
 				03D2851B2BCD94DD001C522C /* PatientListView.swift */,
 				0331F0B52BCEEB16003CFBB5 /* PatientView.swift */,
-				0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,9 +98,9 @@
 		0306BC8D2BCC4A9E00A25768 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0306BC902BCC640700A25768 /* PrmsUsers.swift */,
 				03D31F5B2BCCF0130077C7FE /* Patient.swift */,
-				0331F0B92BD142BC003CFBB5 /* PatientStore.swift */,
+				0331F0B92BD142BC003CFBB5 /* PrmsStore.swift */,
+				0306BC902BCC640700A25768 /* PrmsUsers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 				03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */,
 				0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */,
 				03D2851C2BCD94DD001C522C /* PatientListView.swift in Sources */,
-				0331F0BA2BD142BC003CFBB5 /* PatientStore.swift in Sources */,
+				0331F0BA2BD142BC003CFBB5 /* PrmsStore.swift in Sources */,
 				0306BC912BCC640700A25768 /* PrmsUsers.swift in Sources */,
 				0331F0B82BCF7E88003CFBB5 /* PatientEditView.swift in Sources */,
 				0331F0B62BCEEB16003CFBB5 /* PatientView.swift in Sources */,

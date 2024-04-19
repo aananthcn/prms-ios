@@ -15,6 +15,9 @@ struct MainView: View {
     @State private var selectedDoctorIndex = 0  // State to track selected doctor index
     @State private var isPresentingDoctorView = false
     
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
+
     
     var body: some View {
         NavigationStack {
@@ -49,11 +52,14 @@ struct MainView: View {
                 }
                 .accessibilityLabel("New Doctor")
             }
+        } // NavigationStack
+        .onChange(of: scenePhase) {oldScenePhase, newScenePhase in
+            if newScenePhase == .inactive { saveAction() }
         }
     }
 }
 
 
 #Preview {
-    MainView(doctors: PrmsUsers.sampleUsers, patients: .constant(Patient.samplePatients))
+    MainView(doctors: PrmsUsers.sampleUsers, patients: .constant(Patient.samplePatients), saveAction: {})
 }
