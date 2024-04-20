@@ -10,13 +10,14 @@ import SwiftUI
 
 struct DoctorListView: View {
     @Binding var isPresentingDoctorsView: Bool
+    @Binding var currDoctorIndex: Int
     @Binding var doctors: [Doctor]
     
     var body: some View {
         NavigationView {
             List {
                 ForEach ($doctors) { $doctor in
-                    NavigationLink(destination: DoctorView(doctor: $doctor)) {
+                    NavigationLink(destination: DoctorView(doctor: $doctor, currDoctorIndex: $currDoctorIndex, doctors: $doctors)) {
                         Label(doctor.name, systemImage: "person")
                     }
                 }
@@ -36,5 +37,5 @@ struct DoctorListView: View {
 
 
 #Preview {
-    DoctorListView(isPresentingDoctorsView: .constant(true), doctors: .constant(Doctor.sampleDoctors))
+    DoctorListView(isPresentingDoctorsView: .constant(true), currDoctorIndex: .constant(0), doctors: .constant(Doctor.sampleDoctors))
 }

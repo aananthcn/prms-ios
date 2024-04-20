@@ -105,9 +105,9 @@
 				0306BC7F2BCC4A3700A25768 /* LoginView.swift */,
 				03D2851B2BCD94DD001C522C /* MainView.swift */,
 				03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */,
+				0331F0B52BCEEB16003CFBB5 /* PatientView.swift */,
 				038705FA2BD406BE0082CF10 /* PatientAddView.swift */,
 				0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */,
-				0331F0B52BCEEB16003CFBB5 /* PatientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

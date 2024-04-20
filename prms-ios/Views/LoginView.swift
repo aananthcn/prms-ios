@@ -40,7 +40,7 @@ struct LoginView: View {
                         .font(.headline)
                     
                     // Entry into MainView
-                    NavigationLink(destination: MainView(patients: $patients, doctors: $doctors)) {
+                    NavigationLink(destination: MainView(patients: $patients, doctors: $doctors, currDoctorIndex: $selectedDoctorIndex)) {
                         Text("Login").font(.headline)
                     }
                     Spacer()

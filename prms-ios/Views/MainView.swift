@@ -11,10 +11,12 @@ import SwiftUI
 struct MainView: View {
     @Binding var patients: [Patient]
     @Binding var doctors: [Doctor]
-
+    @Binding var currDoctorIndex: Int
+    
     @State private var isPresentingPatientAddView = false
     @State private var isPresentingDoctorsView = false
     @State private var searchText: String = "" // State to store search text
+
 
     // Computed property to filter patients based on search text
     var filteredPatients: [Patient] {
@@ -30,8 +32,8 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             List(filteredPatients) { patient in
-                NavigationLink(destination: PatientView(patient: $patients[patients.firstIndex(of: patient)!])) {
-                                PatientCard(patient: patient)
+                NavigationLink(destination: PatientView(patient: $patients[patients.firstIndex(of: patient)!], patients: $patients)) {
+                    PatientCard(patient: patient)
                 }
             }
             .navigationTitle("Patients List")
@@ -61,7 +63,7 @@ struct MainView: View {
             }
             .sheet(isPresented: $isPresentingDoctorsView) {
                 // show Doctor's list
-                DoctorListView(isPresentingDoctorsView: $isPresentingDoctorsView, doctors: $doctors)
+                DoctorListView(isPresentingDoctorsView: $isPresentingDoctorsView, currDoctorIndex: $currDoctorIndex, doctors: $doctors)
             }
             .sheet(isPresented: $isPresentingPatientAddView) {
                 PatientAddView(
@@ -82,5 +84,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(patients: .constant(Patient.samplePatients), doctors: .constant(Doctor.sampleDoctors))
+    MainView(patients: .constant(Patient.samplePatients), doctors: .constant(Doctor.sampleDoctors), currDoctorIndex: .constant(0))
 }

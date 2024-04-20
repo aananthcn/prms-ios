@@ -9,7 +9,12 @@ import SwiftUI
 
 struct PatientView: View {
     @Binding var patient: Patient  // Binding to patient data
+    @Binding var patients: [Patient]
+
     @State private var isPresentingEditView = false
+    @State private var isShowingDeleteAlert = false
+
+    @Environment(\.presentationMode) var presentationMode
 
     // Array of month names indexed by month number (0-based)
     let monthAbbreviations = [
@@ -34,6 +39,12 @@ struct PatientView: View {
             Button("Edit") {
                 isPresentingEditView = true
             }
+            Button(action:{
+                isShowingDeleteAlert = true
+            }){
+                Image(systemName: "xmark.bin.circle")
+            }
+            .accessibilityLabel("Delete Patient")
         }
         .sheet(isPresented: $isPresentingEditView) {
             NavigationStack {
@@ -48,6 +59,17 @@ struct PatientView: View {
                     }
             }
         }
+        .alert(isPresented: $isShowingDeleteAlert) {
+            Alert(
+                title: Text("Delete Patient"),
+                message: Text("Are you sure you want to delete \(patient.name)?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    deletePatient()
+                    presentationMode.wrappedValue.dismiss() // Dismiss PatientView
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 
 
@@ -58,9 +80,14 @@ struct PatientView: View {
         }
         return monthAbbreviations[monthNumber]
     }
+
+    // delete patient function
+    private func deletePatient() {
+        patients.removeAll(where: { $0.id == patient.id })
+    }
 }
 
 
 #Preview {
-    PatientView(patient: .constant(Patient.samplePatients[0]))
+    PatientView(patient: .constant(Patient.samplePatients[0]), patients: .constant(Patient.samplePatients))
 }

@@ -10,7 +10,6 @@ import SwiftUI
 
 @main
 struct prms_iosApp: App {
-    //@State var users = Doctor.sampleDoctors
     @StateObject private var dstore = DoctorsStore()
     @StateObject private var pstore = PatientsStore()
 
