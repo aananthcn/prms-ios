@@ -25,4 +25,9 @@ struct Doctor: Identifiable, Codable, Hashable {
         Doctor(name: "Dr. Sachidanandan", phone: ""),
         Doctor(name: "Dr. Arulanandan", phone: "")
     ]
+
+    // Empty doctor
+    static var emptyDoctor: Doctor {
+        Doctor(name: "", phone: "")
+    }
 }

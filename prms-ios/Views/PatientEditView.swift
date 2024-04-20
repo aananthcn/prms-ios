@@ -20,7 +20,7 @@ struct PatientEditView: View {
                             }
                             .pickerStyle(SegmentedPickerStyle())
                             .padding()
-                
+
                 HStack {
                     // Label
                     Text("Year:").font(.caption2)
@@ -52,12 +52,12 @@ struct PatientEditView: View {
                     ))
                     .keyboardType(.numberPad) // Use numeric keyboard for year input
                 }
-                
+
                 TextField("Phone number", text: $patient.phone)
                     .keyboardType(.numberPad)
                 TextField("Email", text: $patient.email)
             }
-        }
+        } // Form
     }
 }
 

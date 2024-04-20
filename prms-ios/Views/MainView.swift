@@ -12,7 +12,7 @@ struct MainView: View {
     @Binding var patients: [Patient]
     @Binding var doctors: [Doctor]
 
-    @State private var isPresentingPatientView = false
+    @State private var isPresentingPatientAddView = false
     @State private var isPresentingDoctorsView = false
     @State private var searchText: String = "" // State to store search text
 
@@ -52,7 +52,7 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        isPresentingPatientView = true
+                        isPresentingPatientAddView = true
                     }) {
                         Image(systemName: "plus")
                     }
@@ -62,6 +62,18 @@ struct MainView: View {
             .sheet(isPresented: $isPresentingDoctorsView) {
                 // show Doctor's list
                 DoctorListView(isPresentingDoctorsView: $isPresentingDoctorsView, doctors: $doctors)
+            }
+            .sheet(isPresented: $isPresentingPatientAddView) {
+                PatientAddView(
+                    patients: $patients,
+                    onAddPatient: { newPatient in
+                        isPresentingPatientAddView = false
+                    },
+                    onCancel: {
+                        // Handle cancel action
+                        isPresentingPatientAddView = false
+                    }
+                )
             }
         }
     }

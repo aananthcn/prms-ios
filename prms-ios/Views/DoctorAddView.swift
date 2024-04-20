@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoctorAddView: View {
     @Binding var doctors: [Doctor]
-    @State private var doctor = Doctor(name: "", phone: "")
+    @State private var doctor = Doctor.emptyDoctor
 
     var onAddDoctor: (Doctor) -> Void // Closure to handle add button
     var onCancel: () -> Void  // Closure to handle cancel action
