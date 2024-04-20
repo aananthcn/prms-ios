@@ -13,8 +13,8 @@ struct LoginView: View {
     @Binding var patients: [Patient]
 
     @State private var selectedDoctorIndex = 0  // State to track selected doctor index
-    @State private var isPresentingDoctorView = false
-    
+    @State private var isPresentingDoctorAddView = false
+
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: ()->Void
 
@@ -53,11 +53,23 @@ struct LoginView: View {
             .navigationTitle("Arutjothi PRMS")
             .toolbar {
                 Button(action:{
-                    isPresentingDoctorView = true
+                    isPresentingDoctorAddView = true
                 }){
                     Image(systemName: "plus")
                 }
                 .accessibilityLabel("New Doctor")
+            }
+            .sheet(isPresented: $isPresentingDoctorAddView) {
+                DoctorAddView(
+                    doctors: $doctors,
+                    onAddDoctor: { newDoctor in
+                        isPresentingDoctorAddView = false
+                    },
+                    onCancel: {
+                        // Handle cancel action
+                        isPresentingDoctorAddView = false
+                    }
+                )
             }
         } // NavigationStack
         .onChange(of: scenePhase) {oldScenePhase, newScenePhase in
