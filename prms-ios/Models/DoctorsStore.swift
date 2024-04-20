@@ -1,42 +1,42 @@
 //
-//  PrmsStore.swift
+//  DoctorsStore.swift
 //  prms-ios
 //
-//  Created by Aananth C N on 18/04/24.
+//  Created by Aananth C N on 20/04/24.
 //
 
 import Foundation
 
 @MainActor
-class PrmsStore: ObservableObject {
-    @Published var patients: [Patient] = []
+class DoctorsStore: ObservableObject {
+    @Published var doctors: [Doctor] = []
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
                                     in: .userDomainMask,
                                     appropriateFor: nil,
                                     create: false)
-        .appendingPathComponent("patients.data")
+        .appendingPathComponent("doctors.data")
     }
     
     func load() async throws  {
-        let task = Task<[Patient], Error> {
+        let task = Task<[Doctor], Error> {
             let fileURL = try Self.fileURL()
             guard let data = try? Data(contentsOf: fileURL) else {
                 return []
             }
             
-            let patientsData = try JSONDecoder().decode([Patient].self, from: data)
-            return patientsData
+            let doctorsData = try JSONDecoder().decode([Doctor].self, from: data)
+            return doctorsData
         }
         
-        let patients = try await task.value
-        self.patients = patients
+        let doctors = try await task.value
+        self.doctors = doctors
     }
     
-    func save(patients: [Patient]) async throws {
+    func save(doctors: [Doctor]) async throws {
         let task = Task {
-            let data = try JSONEncoder().encode(patients)
+            let data = try JSONEncoder().encode(doctors)
             let outfile = try Self.fileURL()
             try data.write(to: outfile)
         }

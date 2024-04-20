@@ -43,6 +43,7 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
+                        // triggers DoctorListView
                         isPresentingDoctorsView = true
                     }) {
                         Image(systemName: "stethoscope")
@@ -59,6 +60,7 @@ struct MainView: View {
                 }
             }
             .sheet(isPresented: $isPresentingDoctorsView) {
+                // show Doctor's list
                 DoctorListView(isPresentingDoctorsView: $isPresentingDoctorsView, doctors: $doctors)
             }
         }

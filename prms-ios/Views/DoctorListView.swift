@@ -24,7 +24,7 @@ struct DoctorListView: View {
             .navigationTitle("Doctors")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Dismiss") {
+                    Button("Close") {
                         isPresentingDoctorsView = false
                     }
                 }

@@ -22,25 +22,32 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Spacer()
-                Image(systemName: "stethoscope")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Picker("Doctors", selection: $selectedDoctorIndex) {
-                    ForEach(doctors.indices, id: \.self) { index in
-                        Text(doctors[index].name) // Display doctor's name in the Picker
+                if !doctors.isEmpty {
+                    Spacer()
+                    Image(systemName: "stethoscope")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    Picker("Doctors", selection: $selectedDoctorIndex) {
+                        ForEach(doctors.indices, id: \.self) { index in
+                            Text(doctors[index].name) // Display doctor's name in the Picker
+                        }
                     }
+                    .pickerStyle(WheelPickerStyle()) // Customize picker style as needed
+                    
+                    Spacer()
+                    Text("Welcome: \(doctors[selectedDoctorIndex].name)")
+                        .padding(1.0)
+                        .font(.headline)
+                    
+                    // Entry into MainView
+                    NavigationLink(destination: MainView(patients: $patients, doctors: $doctors)) {
+                        Text("Login").font(.headline)
+                    }
+                    Spacer()
+                } else {
+                    Text("No doctors available, please add doctors.")
+                        .padding()
                 }
-                .pickerStyle(WheelPickerStyle()) // Customize picker style as needed
-
-                Spacer()
-                Text("Welcome: \(doctors[selectedDoctorIndex].name)")
-                    .padding(1.0)
-                    .font(.headline)
-                NavigationLink(destination: MainView(patients: $patients, doctors: $doctors)) {
-                    Text("Login").font(.headline)
-                }
-                Spacer()
             }
             .padding()
             .navigationTitle("Arutjothi PRMS")

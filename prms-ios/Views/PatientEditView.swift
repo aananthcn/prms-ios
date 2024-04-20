@@ -14,7 +14,6 @@ struct PatientEditView: View {
         Form {
             Section(header: Text("Edit Patient Details")) {
                 TextField("Patient Name", text: $patient.name)
-                //TextField("Male / Female", text: $patient.gender)
                 Picker("Gender", selection: $patient.gender) {
                                 Text("Male").tag("Male")
                                 Text("Female").tag("Female")
