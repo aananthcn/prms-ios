@@ -8,28 +8,49 @@
 import SwiftUI
 
 struct TreatmentListView: View {
-    @State private var treatments = Treatment.sampleTreatments
+    @Binding var patient: Patient
+    var doctor: Doctor
+
+    @State private var isPresentingTreatAddView = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach ($treatments) { $treatment in
-                    /*
-                     NavigationLink(destination: DoctorView(doctor: $doctor, currDoctorIndex: $currDoctorIndex, doctors: $doctors)) {
-                     Label(doctor.name, systemImage: "person")
+                ForEach ($patient.treatments) { $treatment in
+                    NavigationLink(destination: TreatmentView(patient: $patient, treatment: $treatment)) {
+                         TreatmentCard(treatment: treatment)
+                             .listRowInsets(EdgeInsets(top: 5, leading: 1, bottom: 5, trailing: 1)) // Reduce row insets
                      }
-                     */
-                    //Text(treatment.complaint)
-                    TreatmentCard(treatment: treatment)
-                        .listRowInsets(EdgeInsets(top: 5, leading: 1, bottom: 5, trailing: 1)) // Reduce row insets
                 }
             }
-            .navigationTitle("Patient Name")
+            .navigationTitle(patient.name)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        isPresentingTreatAddView = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .accessibilityLabel("New Treatment")
+                }
+            }
+            .sheet(isPresented: $isPresentingTreatAddView) {
+                TreatmentAddView(
+                    treatments: $patient.treatments, patient: patient, doctor: doctor,
+                    onAddTreatment: { newTreatment in
+                        isPresentingTreatAddView = false
+                    },
+                    onCancel: {
+                        // Handle cancel action
+                        isPresentingTreatAddView = false
+                    }
+                )
+            }
         }
     }
 }
 
 
 #Preview {
-    TreatmentListView()
+    TreatmentListView(patient: .constant(Patient.samplePatients[0]), doctor: Doctor.sampleDoctors[0])
 }

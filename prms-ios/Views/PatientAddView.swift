@@ -50,8 +50,8 @@ struct PatientAddView: View {
                             get: { String(patient.month) }, // Convert Int to String
                             set: { newValue in
                                 // Attempt to convert String back to Int
-                                if let newYear = Int(newValue) {
-                                    patient.year = newYear
+                                if let newMonth = Int(newValue) {
+                                    patient.month = newMonth
                                 }
                             }
                         ))

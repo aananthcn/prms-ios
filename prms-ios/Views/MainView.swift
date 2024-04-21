@@ -32,7 +32,12 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             List(filteredPatients) { patient in
+                /* TODO: following commented lines will not be deleted till PatientView link is esablished from treatment list!!!
                 NavigationLink(destination: PatientView(patient: $patients[patients.firstIndex(of: patient)!], patients: $patients)) {
+                    PatientCard(patient: patient)
+                }
+                */
+                NavigationLink(destination: TreatmentListView(patient: $patients[patients.firstIndex(of: patient)!], doctor: doctors[currDoctorIndex])) {
                     PatientCard(patient: patient)
                 }
             }

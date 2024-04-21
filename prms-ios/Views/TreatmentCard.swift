@@ -27,7 +27,7 @@ struct TreatmentCard: View {
                 }
                 Spacer().frame(width: 20)
                 HStack {
-                    Image(systemName: "person").foregroundColor(.blue)
+                    Image(systemName: "stethoscope").foregroundColor(.blue)
                     Text(treatment.doctor.name)
                         .lineLimit(1)
                         .truncationMode(.tail)

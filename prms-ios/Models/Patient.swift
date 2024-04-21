@@ -16,8 +16,9 @@ struct Patient: Identifiable, Codable, Equatable {
     var month: Int
     var year: Int
     var age: Int  // Property to hold calculated age
+    var treatments: [Treatment]
 
-    init(id: UUID = UUID(), name: String, phone: String, email: String, gender: String, year: Int, month: Int) {
+    init(id: UUID = UUID(), name: String, phone: String, email: String, gender: String, year: Int, month: Int, treatments: [Treatment] = []) {
         self.id = id
         self.name = name
         self.phone = phone
@@ -26,6 +27,7 @@ struct Patient: Identifiable, Codable, Equatable {
         self.month = month
         self.year = year
         self.age = Patient.calculateAge(year: year, month: month)  // Calculate age
+        self.treatments = treatments
     }
 
     // Calculate age based on birth year and month
