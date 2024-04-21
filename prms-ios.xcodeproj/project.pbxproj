@@ -12,6 +12,9 @@
 		0306BC822BCC4A3800A25768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC812BCC4A3800A25768 /* Assets.xcassets */; };
 		0306BC852BCC4A3800A25768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */; };
 		0306BC912BCC640700A25768 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC902BCC640700A25768 /* Doctor.swift */; };
+		0325718F2BD4CA980041B2B8 /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0325718E2BD4CA980041B2B8 /* Treatment.swift */; };
+		032571912BD4D1470041B2B8 /* TreatmentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032571902BD4D1470041B2B8 /* TreatmentListView.swift */; };
+		032571932BD4D4640041B2B8 /* TreatmentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032571922BD4D4640041B2B8 /* TreatmentCard.swift */; };
 		0331F0B62BCEEB16003CFBB5 /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B52BCEEB16003CFBB5 /* PatientView.swift */; };
 		0331F0B82BCF7E88003CFBB5 /* PatientEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */; };
 		0331F0BA2BD142BC003CFBB5 /* PatientsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0B92BD142BC003CFBB5 /* PatientsStore.swift */; };
@@ -33,6 +36,9 @@
 		0306BC812BCC4A3800A25768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0306BC902BCC640700A25768 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		0325718E2BD4CA980041B2B8 /* Treatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treatment.swift; sourceTree = "<group>"; };
+		032571902BD4D1470041B2B8 /* TreatmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentListView.swift; sourceTree = "<group>"; };
+		032571922BD4D4640041B2B8 /* TreatmentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentCard.swift; sourceTree = "<group>"; };
 		0331F0B52BCEEB16003CFBB5 /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
 		0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientEditView.swift; sourceTree = "<group>"; };
 		0331F0B92BD142BC003CFBB5 /* PatientsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsStore.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 				0331F0B52BCEEB16003CFBB5 /* PatientView.swift */,
 				038705FA2BD406BE0082CF10 /* PatientAddView.swift */,
 				0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */,
+				032571902BD4D1470041B2B8 /* TreatmentListView.swift */,
+				032571922BD4D4640041B2B8 /* TreatmentCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,9 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				0306BC902BCC640700A25768 /* Doctor.swift */,
+				038705F62BD387070082CF10 /* DoctorsStore.swift */,
 				03D31F5B2BCCF0130077C7FE /* Patient.swift */,
 				0331F0B92BD142BC003CFBB5 /* PatientsStore.swift */,
-				038705F62BD387070082CF10 /* DoctorsStore.swift */,
+				0325718E2BD4CA980041B2B8 /* Treatment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,11 +218,14 @@
 				03D2851C2BCD94DD001C522C /* MainView.swift in Sources */,
 				038705F72BD387070082CF10 /* DoctorsStore.swift in Sources */,
 				0331F0BC2BD283F8003CFBB5 /* DoctorListView.swift in Sources */,
+				032571912BD4D1470041B2B8 /* TreatmentListView.swift in Sources */,
 				0331F0BE2BD2CEE5003CFBB5 /* DoctorView.swift in Sources */,
 				0331F0BA2BD142BC003CFBB5 /* PatientsStore.swift in Sources */,
+				032571932BD4D4640041B2B8 /* TreatmentCard.swift in Sources */,
 				0306BC912BCC640700A25768 /* Doctor.swift in Sources */,
 				038705F92BD3B2540082CF10 /* DoctorAddView.swift in Sources */,
 				0331F0B82BCF7E88003CFBB5 /* PatientEditView.swift in Sources */,
+				0325718F2BD4CA980041B2B8 /* Treatment.swift in Sources */,
 				0331F0B62BCEEB16003CFBB5 /* PatientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
