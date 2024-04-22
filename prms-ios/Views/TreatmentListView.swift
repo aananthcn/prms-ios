@@ -9,10 +9,12 @@ import SwiftUI
 
 struct TreatmentListView: View {
     @Binding var patient: Patient
+    @Binding var patients: [Patient]
     var doctor: Doctor
 
     @State private var isPresentingTreatAddView = false
-    
+    @State private var isPresentingPatientView = false
+
     var body: some View {
         NavigationView {
             List {
@@ -25,6 +27,12 @@ struct TreatmentListView: View {
             }
             .navigationTitle(patient.name)
             .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: PatientView(patient: $patient, patients: $patients)) {
+                        Image(systemName: "person")
+                            .accessibilityLabel("Patient View")
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         isPresentingTreatAddView = true
@@ -52,5 +60,5 @@ struct TreatmentListView: View {
 
 
 #Preview {
-    TreatmentListView(patient: .constant(Patient.samplePatients[0]), doctor: Doctor.sampleDoctors[0])
+    TreatmentListView(patient: .constant(Patient.samplePatients[0]), patients: .constant(Patient.samplePatients), doctor: Doctor.sampleDoctors[0])
 }

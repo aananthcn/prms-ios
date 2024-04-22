@@ -18,7 +18,7 @@ struct TreatmentView: View {
                 Label("\(treatment.complaint)", systemImage: "exclamationmark.bubble")
                 Label("\(patient.name)", systemImage: "person")
             }
-            Section(header: Text("Treatment Details")) {
+            Section(header: Text("Prescription Details")) {
                 Label("\(treatment.prescription)", systemImage: "ellipsis.bubble")
                 Label("\(treatment.doctor.name)", systemImage: "stethoscope")
                 Label("\(treatment.dateString)", systemImage: "calendar")

@@ -1,9 +1,10 @@
 //
-//  PatientListView.swift
+//  MainView.swift
 //  prms-ios
 //
 //  Created by Aananth C N on 15/04/24.
 //
+//  Lists all patient's card
 
 import SwiftUI
 
@@ -32,12 +33,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             List(filteredPatients) { patient in
-                /* TODO: following commented lines will not be deleted till PatientView link is esablished from treatment list!!!
-                NavigationLink(destination: PatientView(patient: $patients[patients.firstIndex(of: patient)!], patients: $patients)) {
-                    PatientCard(patient: patient)
-                }
-                */
-                NavigationLink(destination: TreatmentListView(patient: $patients[patients.firstIndex(of: patient)!], doctor: doctors[currDoctorIndex])) {
+                NavigationLink(destination: TreatmentListView(patient: $patients[patients.firstIndex(of: patient)!], patients: $patients, doctor: doctors[currDoctorIndex])) {
                     PatientCard(patient: patient)
                 }
             }

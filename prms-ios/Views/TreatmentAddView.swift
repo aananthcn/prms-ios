@@ -41,7 +41,7 @@ struct TreatmentAddView: View {
                         .frame(minHeight: 50)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                Section(header: Text("Treatment Details")) {
+                Section(header: Text("Prescription Details")) {
                     TextField("Enter the prescription.", text: $editedTreatment.prescription)
                         .frame(minHeight: 50)
                         .fixedSize(horizontal: false, vertical: true)

@@ -14,7 +14,7 @@ struct PatientView: View {
     @State private var isPresentingEditView = false
     @State private var isShowingDeleteAlert = false
 
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     // Array of month names indexed by month number (0-based)
     let monthAbbreviations = [
@@ -36,15 +36,17 @@ struct PatientView: View {
         }
         .navigationTitle(patient.name)
         .toolbar {
-            Button("Edit") {
-                isPresentingEditView = true
-            }
             Button(action:{
                 isShowingDeleteAlert = true
             }){
-                Image(systemName: "xmark.bin.circle")
+                Image(systemName: "xmark.bin")
             }
             .accessibilityLabel("Delete Patient")
+            
+            Button("Edit") {
+                isPresentingEditView = true
+            }
+            .accessibilityLabel("Edit Patient")
         }
         .sheet(isPresented: $isPresentingEditView) {
             NavigationStack {
