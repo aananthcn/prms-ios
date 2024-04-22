@@ -15,7 +15,7 @@ struct PatientView: View {
     @State private var isShowingDeleteAlert = false
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     // Array of month names indexed by month number (0-based)
     let monthAbbreviations = [
         "",     // Placeholder for index 0 (months are 1-based)
@@ -24,53 +24,58 @@ struct PatientView: View {
     ]
    
     var body: some View {
-        List {
-            Section(header: Text("Patient Info")) {
-                Label("\(patient.gender)", systemImage: "person")
-                Label("\(patient.phone)", systemImage: "phone")
-                Label("\(patient.email)", systemImage: "mail")
-                HStack {
-                    Label(abbreviatedMonth(for:patient.month)+" - \(patient.year)",systemImage: "calendar")
+        NavigationView {
+            List {
+                Section(header: Text("Patient Info")) {
+                    Label("\(patient.gender)", systemImage: "person")
+                    Label("\(patient.phone)", systemImage: "phone")
+                    Label("\(patient.email)", systemImage: "mail")
+                    HStack {
+                        Label(abbreviatedMonth(for:patient.month)+" - \(patient.year)",systemImage: "calendar")
+                    }
                 }
             }
-        }
-        .navigationTitle(patient.name)
-        .toolbar {
-            Button(action:{
-                isShowingDeleteAlert = true
-            }){
-                Image(systemName: "xmark.bin")
+            .navigationTitle(patient.name)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action:{
+                        isShowingDeleteAlert = true
+                    }){
+                        Image(systemName: "xmark.bin")
+                    }
+                    .accessibilityLabel("Delete Patient")
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Edit") {
+                        isPresentingEditView = true
+                    }
+                    .accessibilityLabel("Edit Patient")
+                }
             }
-            .accessibilityLabel("Delete Patient")
-            
-            Button("Edit") {
-                isPresentingEditView = true
-            }
-            .accessibilityLabel("Edit Patient")
-        }
-        .sheet(isPresented: $isPresentingEditView) {
-            NavigationStack {
-                PatientEditView(patient: $patient)
-                    .navigationTitle($patient.name)
-                    .toolbar {
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") {
-                                isPresentingEditView = false
+            .sheet(isPresented: $isPresentingEditView) {
+                NavigationStack {
+                    PatientEditView(patient: $patient)
+                        .navigationTitle($patient.name)
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") {
+                                    isPresentingEditView = false
+                                }
                             }
                         }
-                    }
+                }
             }
-        }
-        .alert(isPresented: $isShowingDeleteAlert) {
-            Alert(
-                title: Text("Delete Patient"),
-                message: Text("Are you sure you want to delete \(patient.name)?"),
-                primaryButton: .destructive(Text("Delete")) {
-                    deletePatient()
-                    presentationMode.wrappedValue.dismiss() // Dismiss PatientView
-                },
-                secondaryButton: .cancel()
-            )
+            .alert(isPresented: $isShowingDeleteAlert) {
+                Alert(
+                    title: Text("Delete Patient"),
+                    message: Text("Are you sure you want to delete \(patient.name)?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        deletePatient()
+                        presentationMode.wrappedValue.dismiss() // Dismiss PatientView
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
         }
     }
 
@@ -91,5 +96,8 @@ struct PatientView: View {
 
 
 #Preview {
-    PatientView(patient: .constant(Patient.samplePatients[0]), patients: .constant(Patient.samplePatients))
+    PatientView(
+        patient: .constant(Patient.samplePatients[0]),
+        patients: .constant(Patient.samplePatients)
+    )
 }
