@@ -35,6 +35,7 @@ struct MainView: View {
             List(filteredPatients) { patient in
                 NavigationLink(destination: TreatmentListView(patient: $patients[patients.firstIndex(of: patient)!], patients: $patients, doctor: doctors[currDoctorIndex])) {
                     PatientCard(patient: patient)
+                        .listRowInsets(EdgeInsets(top: 0.5, leading: 1, bottom: 0.5, trailing: 1))
                 }
             }
             .navigationTitle("Patients List")

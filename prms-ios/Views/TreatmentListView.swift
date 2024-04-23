@@ -21,7 +21,7 @@ struct TreatmentListView: View {
                 ForEach($patient.treatments) { $treatment in
                     NavigationLink(destination: TreatmentView(patient: $patient, treatment: $treatment)) {
                         TreatmentCard(treatment: treatment)
-                            .listRowInsets(EdgeInsets(top: 5, leading: 1, bottom: 5, trailing: 1))
+                            .listRowInsets(EdgeInsets(top: 0.5, leading: 1, bottom: 0.5, trailing: 1))
                     }
                 }
             }

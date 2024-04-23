@@ -31,7 +31,7 @@ struct Patient: Identifiable, Codable, Equatable {
     }
 
     // Calculate age based on birth year and month
-    private static func calculateAge(year: Int, month: Int) -> Int {
+    static func calculateAge(year: Int, month: Int) -> Int {
         let currentDate = Date()
         let calendar = Calendar.current
 

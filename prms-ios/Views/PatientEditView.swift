@@ -32,6 +32,7 @@ struct PatientEditView: View {
                             // Attempt to convert String back to Int
                             if let newYear = Int(newValue) {
                                 patient.year = newYear
+                                patient.age = Patient.calculateAge(year: patient.year, month: patient.month)
                             }
                         }
                     ))
@@ -47,6 +48,7 @@ struct PatientEditView: View {
                             // Attempt to convert String back to Int
                             if let newMonth = Int(newValue) {
                                 patient.month = newMonth
+                                patient.age = Patient.calculateAge(year: patient.year, month: patient.month)
                             }
                         }
                     ))
