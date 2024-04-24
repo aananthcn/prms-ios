@@ -9,6 +9,31 @@ import SwiftUI
 
 struct PatientCard: View {
     let patient: Patient
+
+    // Computed property to calculate age dynamically based on the current date
+    var dynamicAge: Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        // Extract birth year and month components from patient's information
+        let birthYear = patient.year
+        let birthMonth = patient.month
+
+        // Extract current year and month components
+        let currentYear = calendar.component(.year, from: currentDate)
+        let currentMonth = calendar.component(.month, from: currentDate)
+
+        // Calculate age based on current date and patient's birthdate
+        var age = currentYear - birthYear
+
+        // Adjust age if current month is before patient's birth month in the current year
+        if currentMonth < birthMonth {
+            age -= 1
+        }
+
+        return age
+    }
+
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,7 +42,7 @@ struct PatientCard: View {
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)
                 Spacer()
-                Text(patient.age.codingKey.stringValue)
+                Text("\(dynamicAge)")
             }
             HStack {
                 Label("\(patient.phone)", systemImage: "phone")
