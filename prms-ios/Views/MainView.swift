@@ -16,7 +16,9 @@ struct MainView: View {
     
     @State private var isPresentingPatientAddView = false
     @State private var isPresentingDoctorsView = false
+    @State private var searchModifierState: Int = 0
     @State private var searchText: String = "" // State to store search text
+    @State private var searchTextHelper: String = "Patient Search"
 
 
     // Computed property to filter patients based on search text
@@ -24,6 +26,20 @@ struct MainView: View {
         if searchText.isEmpty {
             // If search text is empty, return all patients
             return patients
+        } else if searchModifierState == 1 {
+            // Filter patients based on treatment
+            return patients.filter { patient in
+                patient.treatments.contains { treatment in
+                    treatment.prescription.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        } else if searchModifierState == 2 {
+            // Filter patients based on complaint
+            return patients.filter { patient in
+                patient.treatments.contains { treatment in
+                    treatment.complaint.localizedCaseInsensitiveContains(searchText)
+                }
+            }
         } else {
             // Filter patients whose names contain the search text (case-insensitive)
             return patients.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
@@ -41,7 +57,7 @@ struct MainView: View {
             .navigationTitle("Patients List")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    TextField("Search", text: $searchText)
+                    TextField(searchTextHelper, text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal, 2) // Add horizontal padding
                 }
@@ -62,6 +78,28 @@ struct MainView: View {
                     }
                     .accessibilityLabel("New Patient")
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        // Change search state on button press
+                        searchModifierState = (searchModifierState + 1) % 3
+
+                        // Update search text helper
+                        switch searchModifierState {
+                        case 0:
+                            searchTextHelper = "Patient Search"
+                        case 1:
+                            searchTextHelper = "Prescription Search"
+                        case 2:
+                            searchTextHelper = "Complaint Search"
+                        default:
+                            searchTextHelper = "Patient Search"
+                        }
+                    }) {
+                        Image(systemName: "text.magnifyingglass")
+                            .foregroundColor(getForegroundColor())
+                    }
+                    .accessibilityLabel("Toggle Search Mode")
+                }
             }
             .sheet(isPresented: $isPresentingDoctorsView) {
                 // show Doctor's list
@@ -81,6 +119,20 @@ struct MainView: View {
             }
         }
     }
+
+    // Helper function to determine foreground color based on search state
+        private func getForegroundColor() -> Color {
+            switch searchModifierState {
+            case 0:
+                return .blue
+            case 1:
+                return .cyan
+            case 2:
+                return .red
+            default:
+                return .blue
+            }
+        }
 }
 
 
