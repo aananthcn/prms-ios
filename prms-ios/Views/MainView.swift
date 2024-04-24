@@ -126,7 +126,7 @@ struct MainView: View {
             case 0:
                 return .blue
             case 1:
-                return .cyan
+                return Color(red: 0.0, green: 0.9, blue: 0.2)
             case 2:
                 return .red
             default:
