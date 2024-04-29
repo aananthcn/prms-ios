@@ -1,5 +1,5 @@
 //
-//  PrmsStore.swift
+//  PatientsStore.swift
 //  prms-ios
 //
 //  Created by Aananth C N on 18/04/24.
@@ -11,7 +11,7 @@ import Foundation
 class PatientsStore: ObservableObject {
     @Published var patients: [Patient] = []
     
-    private static func fileURL() throws -> URL {
+    static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
                                     in: .userDomainMask,
                                     appropriateFor: nil,

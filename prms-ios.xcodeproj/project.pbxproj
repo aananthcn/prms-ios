@@ -23,6 +23,8 @@
 		0331F0BE2BD2CEE5003CFBB5 /* DoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0BD2BD2CEE5003CFBB5 /* DoctorView.swift */; };
 		0331F0C02BD2D6B5003CFBB5 /* DoctorEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0BF2BD2D6B5003CFBB5 /* DoctorEditView.swift */; };
 		034DA9ED2BD565BF00CE9B2C /* TreatmentAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DA9EC2BD565BF00CE9B2C /* TreatmentAddView.swift */; };
+		034DA9EF2BDCB76400CE9B2C /* ShareFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DA9EE2BDCB76400CE9B2C /* ShareFileView.swift */; };
+		034DA9F32BDE015600CE9B2C /* prms-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 034DA9F22BDE015600CE9B2C /* prms-icon.png */; };
 		038705F72BD387070082CF10 /* DoctorsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038705F62BD387070082CF10 /* DoctorsStore.swift */; };
 		038705F92BD3B2540082CF10 /* DoctorAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038705F82BD3B2540082CF10 /* DoctorAddView.swift */; };
 		038705FB2BD406BE0082CF10 /* PatientAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038705FA2BD406BE0082CF10 /* PatientAddView.swift */; };
@@ -49,6 +51,9 @@
 		0331F0BD2BD2CEE5003CFBB5 /* DoctorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorView.swift; sourceTree = "<group>"; };
 		0331F0BF2BD2D6B5003CFBB5 /* DoctorEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorEditView.swift; sourceTree = "<group>"; };
 		034DA9EC2BD565BF00CE9B2C /* TreatmentAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentAddView.swift; sourceTree = "<group>"; };
+		034DA9EE2BDCB76400CE9B2C /* ShareFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFileView.swift; sourceTree = "<group>"; };
+		034DA9F22BDE015600CE9B2C /* prms-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prms-icon.png"; sourceTree = "<group>"; };
+		034DA9F42BDE0D5900CE9B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		038705F62BD387070082CF10 /* DoctorsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsStore.swift; sourceTree = "<group>"; };
 		038705F82BD3B2540082CF10 /* DoctorAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAddView.swift; sourceTree = "<group>"; };
 		038705FA2BD406BE0082CF10 /* PatientAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientAddView.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		0306BC7C2BCC4A3700A25768 /* prms-ios */ = {
 			isa = PBXGroup;
 			children = (
+				034DA9F42BDE0D5900CE9B2C /* Info.plist */,
 				0306BC932BCC7AF400A25768 /* Resources */,
 				0306BC8D2BCC4A9E00A25768 /* Models */,
 				0306BC8C2BCC4A7200A25768 /* Views */,
@@ -118,6 +124,7 @@
 				0331F0B52BCEEB16003CFBB5 /* PatientView.swift */,
 				038705FA2BD406BE0082CF10 /* PatientAddView.swift */,
 				0331F0B72BCF7E88003CFBB5 /* PatientEditView.swift */,
+				034DA9EE2BDCB76400CE9B2C /* ShareFileView.swift */,
 				032571922BD4D4640041B2B8 /* TreatmentCard.swift */,
 				032571942BD527160041B2B8 /* TreatmentView.swift */,
 				032571902BD4D1470041B2B8 /* TreatmentListView.swift */,
@@ -141,6 +148,7 @@
 		0306BC932BCC7AF400A25768 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				034DA9F22BDE015600CE9B2C /* prms-icon.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0306BC852BCC4A3800A25768 /* Preview Assets.xcassets in Resources */,
+				034DA9F32BDE015600CE9B2C /* prms-icon.png in Resources */,
 				0306BC822BCC4A3800A25768 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +233,7 @@
 				03D2851C2BCD94DD001C522C /* MainView.swift in Sources */,
 				038705F72BD387070082CF10 /* DoctorsStore.swift in Sources */,
 				0331F0BC2BD283F8003CFBB5 /* DoctorListView.swift in Sources */,
+				034DA9EF2BDCB76400CE9B2C /* ShareFileView.swift in Sources */,
 				034DA9ED2BD565BF00CE9B2C /* TreatmentAddView.swift in Sources */,
 				032571912BD4D1470041B2B8 /* TreatmentListView.swift in Sources */,
 				0331F0BE2BD2CEE5003CFBB5 /* DoctorView.swift in Sources */,
@@ -371,6 +381,9 @@
 				DEVELOPMENT_TEAM = 47WW2WBH3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "prms-ios/Info.plist";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need access to your Documents folder to export files.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "We need access to your Downloads folder to import files.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -400,6 +413,9 @@
 				DEVELOPMENT_TEAM = 47WW2WBH3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "prms-ios/Info.plist";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need access to your Documents folder to export files.";
+				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "We need access to your Downloads folder to import files.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

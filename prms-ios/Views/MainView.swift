@@ -16,6 +16,8 @@ struct MainView: View {
     
     @State private var isPresentingPatientAddView = false
     @State private var isPresentingDoctorsView = false
+    @State private var isExportOperationActive = false
+
     @State private var searchModifierState: Int = 0
     @State private var searchText: String = "" // State to store search text
     @State private var searchTextHelper: String = "Patient Search"
@@ -100,6 +102,14 @@ struct MainView: View {
                     }
                     .accessibilityLabel("Toggle Search Mode")
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        isExportOperationActive = true
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .accessibilityLabel("Export Patients")
+                }
             }
             .sheet(isPresented: $isPresentingDoctorsView) {
                 // show Doctor's list
@@ -117,22 +127,47 @@ struct MainView: View {
                     }
                 )
             }
+            .sheet(isPresented: $isExportOperationActive) {
+                Button(action: {
+                    isExportOperationActive = false
+                }) {
+                    //Image(systemName: "xmark.circle")
+                    Text("Dismiss")
+                }
+                if isExportOperationActive {
+                    if let patientsDataURL = try? PatientsStore.fileURL() {
+                        ShareFileView(
+                            url: patientsDataURL,
+                            isPresented: $isExportOperationActive,
+                            onDismiss: {
+                                // This closure will be called when sharing is done
+                                // Reset the flag to dismiss the sheet
+                                isExportOperationActive = false
+                            }
+                        )
+                    } else {
+                        // Handle error while getting URL
+                        // For example, show an alert
+                        Text("Error occurred")
+                    }
+                }
+            }
         }
     }
 
     // Helper function to determine foreground color based on search state
-        private func getForegroundColor() -> Color {
-            switch searchModifierState {
-            case 0:
-                return .blue
-            case 1:
-                return Color(red: 0.0, green: 0.9, blue: 0.2)
-            case 2:
-                return .red
-            default:
-                return .blue
-            }
+    private func getForegroundColor() -> Color {
+        switch searchModifierState {
+        case 0:
+            return .blue
+        case 1:
+            return Color(red: 0.0, green: 0.9, blue: 0.2)
+        case 2:
+            return .red
+        default:
+            return .blue
         }
+    }
 }
 
 
