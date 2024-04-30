@@ -128,22 +128,11 @@ struct MainView: View {
                 )
             }
             .sheet(isPresented: $isExportOperationActive) {
-                Button(action: {
-                    isExportOperationActive = false
-                }) {
-                    //Image(systemName: "xmark.circle")
-                    Text("Dismiss")
-                }
                 if isExportOperationActive {
                     if let patientsDataURL = try? PatientsStore.fileURL() {
-                        ShareFileView(
+                        ExportFileView(
                             url: patientsDataURL,
-                            isPresented: $isExportOperationActive,
-                            onDismiss: {
-                                // This closure will be called when sharing is done
-                                // Reset the flag to dismiss the sheet
-                                isExportOperationActive = false
-                            }
+                            isPresented: $isExportOperationActive
                         )
                     } else {
                         // Handle error while getting URL
