@@ -22,6 +22,7 @@
 		0331F0BC2BD283F8003CFBB5 /* DoctorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0BB2BD283F8003CFBB5 /* DoctorListView.swift */; };
 		0331F0BE2BD2CEE5003CFBB5 /* DoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0BD2BD2CEE5003CFBB5 /* DoctorView.swift */; };
 		0331F0C02BD2D6B5003CFBB5 /* DoctorEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331F0BF2BD2D6B5003CFBB5 /* DoctorEditView.swift */; };
+		034D2C2A2BE2B7C20045659E /* ImportFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034D2C292BE2B7C20045659E /* ImportFileView.swift */; };
 		034DA9ED2BD565BF00CE9B2C /* TreatmentAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DA9EC2BD565BF00CE9B2C /* TreatmentAddView.swift */; };
 		034DA9EF2BDCB76400CE9B2C /* ExportFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DA9EE2BDCB76400CE9B2C /* ExportFileView.swift */; };
 		034DA9F32BDE015600CE9B2C /* prms-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 034DA9F22BDE015600CE9B2C /* prms-icon.png */; };
@@ -50,6 +51,7 @@
 		0331F0BB2BD283F8003CFBB5 /* DoctorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListView.swift; sourceTree = "<group>"; };
 		0331F0BD2BD2CEE5003CFBB5 /* DoctorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorView.swift; sourceTree = "<group>"; };
 		0331F0BF2BD2D6B5003CFBB5 /* DoctorEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorEditView.swift; sourceTree = "<group>"; };
+		034D2C292BE2B7C20045659E /* ImportFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileView.swift; sourceTree = "<group>"; };
 		034DA9EC2BD565BF00CE9B2C /* TreatmentAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentAddView.swift; sourceTree = "<group>"; };
 		034DA9EE2BDCB76400CE9B2C /* ExportFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFileView.swift; sourceTree = "<group>"; };
 		034DA9F22BDE015600CE9B2C /* prms-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prms-icon.png"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				0331F0BF2BD2D6B5003CFBB5 /* DoctorEditView.swift */,
 				0331F0BB2BD283F8003CFBB5 /* DoctorListView.swift */,
 				034DA9EE2BDCB76400CE9B2C /* ExportFileView.swift */,
+				034D2C292BE2B7C20045659E /* ImportFileView.swift */,
 				0306BC7F2BCC4A3700A25768 /* LoginView.swift */,
 				03D2851B2BCD94DD001C522C /* MainView.swift */,
 				03D31F5D2BCCF4E10077C7FE /* PatientCard.swift */,
@@ -239,6 +242,7 @@
 				0331F0BE2BD2CEE5003CFBB5 /* DoctorView.swift in Sources */,
 				032571952BD527160041B2B8 /* TreatmentView.swift in Sources */,
 				0331F0BA2BD142BC003CFBB5 /* PatientsStore.swift in Sources */,
+				034D2C2A2BE2B7C20045659E /* ImportFileView.swift in Sources */,
 				032571932BD4D4640041B2B8 /* TreatmentCard.swift in Sources */,
 				0306BC912BCC640700A25768 /* Doctor.swift in Sources */,
 				038705F92BD3B2540082CF10 /* DoctorAddView.swift in Sources */,

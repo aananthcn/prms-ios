@@ -17,6 +17,7 @@ struct MainView: View {
     @State private var isPresentingPatientAddView = false
     @State private var isPresentingDoctorsView = false
     @State private var isExportOperationActive = false
+    @State private var isImportOperationActive = false
 
     @State private var searchModifierState: Int = 0
     @State private var searchText: String = "" // State to store search text
@@ -110,6 +111,14 @@ struct MainView: View {
                     }
                     .accessibilityLabel("Export Patients")
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        isImportOperationActive = true
+                    }) {
+                        Image(systemName: "square.and.arrow.down")
+                    }
+                    .accessibilityLabel("Export Patients")
+                }
             }
             .sheet(isPresented: $isPresentingDoctorsView) {
                 // show Doctor's list
@@ -139,6 +148,12 @@ struct MainView: View {
                         // For example, show an alert
                         Text("Error occurred")
                     }
+                }
+            }
+            .sheet(isPresented: $isImportOperationActive) {
+                ImportFileView(isPresented: $isImportOperationActive) { url in
+                    // Handle the imported file URL here
+                    print("Imported file URL: \(url)")
                 }
             }
         }
