@@ -18,10 +18,19 @@ struct TreatmentListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach($patient.treatments) { $treatment in
-                    NavigationLink(destination: TreatmentView(patient: $patient, treatment: $treatment)) {
+                // list treatments in reverse chronological order
+                ForEach(patient.treatments.sorted(by: { treatment1, treatment2 in
+                    // Convert dateString to Date objects for comparison
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = treatment1.dateFormat
+                    guard let date1 = formatter.date(from: treatment1.dateString),
+                          let date2 = formatter.date(from: treatment2.dateString) else {
+                        return false // Handle invalid dates
+                    }
+                    return date1 > date2 // Sort in descending order
+                })) { treatment in
+                    NavigationLink(destination: TreatmentView(patient: $patient, treatment: .constant(treatment))) {
                         TreatmentCard(treatment: treatment)
-                            .listRowInsets(EdgeInsets(top: 0.5, leading: 1, bottom: 0.5, trailing: 1))
                     }
                 }
             }
