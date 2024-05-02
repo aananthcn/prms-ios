@@ -138,16 +138,13 @@ struct MainView: View {
             }
             .sheet(isPresented: $isExportOperationActive) {
                 if isExportOperationActive {
-                    if let patientsDataURL = try? PatientsStore.fileURL() {
-                        ExportFileView(
-                            url: patientsDataURL,
-                            isPresented: $isExportOperationActive
-                        )
-                    } else {
-                        // Handle error while getting URL
-                        // For example, show an alert
-                        Text("Error occurred")
-                    }
+                    ExportFileView(
+                        isPresented: $isExportOperationActive, patients: patients
+                    )
+                } else {
+                    // Handle error while getting URL
+                    // For example, show an alert
+                    Text("Error occurred")
                 }
             }
             .sheet(isPresented: $isImportOperationActive) {
