@@ -386,8 +386,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "prms-ios/Info.plist";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need access to your Documents folder to export files.";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "We need access to your Downloads folder to import files.";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "We need access to downloads folder to import files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -418,8 +419,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "prms-ios/Info.plist";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need access to your Documents folder to export files.";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "We need access to your Downloads folder to import files.";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "We need access to downloads folder to import files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

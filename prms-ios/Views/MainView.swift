@@ -174,22 +174,25 @@ struct MainView: View {
 
     @MainActor private func importAndMergePatients(from url: URL) {
         do {
-            let patientsStore = PatientsStore() // Create an instance of PatientsStore
-            let importedPatients = try patientsStore.load(from: url)
-            
-            for importedPatient in importedPatients {
-                if let existingPatientIndex = patients.firstIndex(where: { $0.phone == importedPatient.phone }) {
-                    // Patient with same phone number found
-                    for importedTreatment in importedPatient.treatments {
-                        if !patients[existingPatientIndex].treatments.contains(where: { $0.id == importedTreatment.id }) {
-                            // Treatment with same ID not found, append to existing patient's treatments
-                            patients[existingPatientIndex].treatments.append(importedTreatment)
+            if url.startAccessingSecurityScopedResource() {
+                let patientsStore = PatientsStore() // Create an instance of PatientsStore
+                let importedPatients = try patientsStore.load(from: url)
+
+                for importedPatient in importedPatients {
+                    if let existingPatientIndex = patients.firstIndex(where: { $0.phone == importedPatient.phone }) {
+                        // Patient with same phone number found
+                        for importedTreatment in importedPatient.treatments {
+                            if !patients[existingPatientIndex].treatments.contains(where: { $0.id == importedTreatment.id }) {
+                                // Treatment with same ID not found, append to existing patient's treatments
+                                patients[existingPatientIndex].treatments.append(importedTreatment)
+                            }
                         }
+                    } else {
+                        // No existing patient with same phone number, append the imported patient
+                        patients.append(importedPatient)
                     }
-                } else {
-                    // No existing patient with same phone number, append the imported patient
-                    patients.append(importedPatient)
                 }
+                url.stopAccessingSecurityScopedResource()
             }
         } catch {
             // Handle error while importing patients
