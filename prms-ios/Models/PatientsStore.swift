@@ -33,6 +33,13 @@ class PatientsStore: ObservableObject {
         let patients = try await task.value
         self.patients = patients
     }
+
+    // Overloaded load function to handle merging of imported patients with existing ones
+    func load(from url: URL) throws -> [Patient] {
+        let data = try Data(contentsOf: url)
+        let importedPatients = try JSONDecoder().decode([Patient].self, from: data)
+        return importedPatients
+    }
     
     func save(patients: [Patient]) async throws {
         let task = Task {
