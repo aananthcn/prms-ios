@@ -176,8 +176,8 @@ struct MainView: View {
                 let importedPatients = try patientsStore.load(from: url)
 
                 for importedPatient in importedPatients {
-                    if let existingPatientIndex = patients.firstIndex(where: { $0.phone == importedPatient.phone }) {
-                        // Patient with same phone number found
+                    if let existingPatientIndex = patients.firstIndex(where: { (!$0.phone.isEmpty && $0.phone == importedPatient.phone) || ($0.phone.isEmpty && $0.name == importedPatient.name) }) {
+                        // Patient with same phone number or matching name found
                         for importedTreatment in importedPatient.treatments {
                             if !patients[existingPatientIndex].treatments.contains(where: { $0.id == importedTreatment.id }) {
                                 // Treatment with same ID not found, append to existing patient's treatments

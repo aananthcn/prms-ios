@@ -12,6 +12,7 @@ struct Patient: Identifiable, Codable, Equatable {
     var name: String
     var phone: String
     var email: String
+    var address: String
     var gender: String
     var month: Int
     var year: Int
@@ -23,6 +24,7 @@ struct Patient: Identifiable, Codable, Equatable {
         self.name = name
         self.phone = phone
         self.email = email
+        self.address = ""
         self.gender = gender
         self.month = month
         self.year = year
