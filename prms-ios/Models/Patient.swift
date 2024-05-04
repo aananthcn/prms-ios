@@ -65,3 +65,15 @@ struct Patient: Identifiable, Codable, Equatable {
         Patient(name: "", phone: "", email: "", gender: "Male", year: 1970, month: 1)
     }
 }
+
+extension Patient {
+    mutating func updateDetails(from importedPatient: Patient) {
+        // Update other details of the existing patient from the imported patient
+        self.address = importedPatient.address
+        self.email = importedPatient.email
+        self.gender = importedPatient.gender
+        self.year = importedPatient.year
+        self.month = importedPatient.month
+        self.id = importedPatient.id
+    }
+}

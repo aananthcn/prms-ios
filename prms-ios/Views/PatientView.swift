@@ -33,6 +33,8 @@ struct PatientView: View {
                     HStack {
                         Label(abbreviatedMonth(for:patient.month)+" - \(patient.year)",systemImage: "calendar")
                     }
+                    Label("\(patient.address)", systemImage: "house")
+                    Label("\(patient.treatments.count)", systemImage: "figure.walk.arrival")
                 }
             }
             .navigationTitle(patient.name)

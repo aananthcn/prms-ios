@@ -57,6 +57,8 @@ struct PatientEditView: View {
 
                 TextField("Phone number", text: $patient.phone)
                     .keyboardType(.numberPad)
+                TextField("Postal Address", text: $patient.address)
+                    .frame(minHeight: 50)
                 TextField("Email", text: $patient.email)
             }
         } // Form
