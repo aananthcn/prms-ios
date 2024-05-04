@@ -37,14 +37,16 @@ struct prms_iosApp: App {
                 do {
                     try await pstore.load()
                 } catch {
-                    fatalError(error.localizedDescription)
+                    // TODO: Handle this error as a info or warning!
+                    print(error.localizedDescription)
                 }
 
                 // Task to load doctor data
                 do {
                     try await dstore.load()
                 } catch {
-                    fatalError(error.localizedDescription)
+                    // TODO: Handle this error as a info or warning!
+                    print(error.localizedDescription)
                 }
             }
         }
