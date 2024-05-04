@@ -176,16 +176,18 @@ struct MainView: View {
                 let importedPatients = try patientsStore.load(from: url)
 
                 for importedPatient in importedPatients {
-                    if let existingPatientIndex = patients.firstIndex(where: { (!$0.phone.isEmpty && $0.phone == importedPatient.phone) || ($0.phone.isEmpty && $0.name == importedPatient.name) }) {
-                        // Patient with same phone number or matching name found
+                    if let existingPatientIndex = patients.firstIndex(where: { existingPatientMatches(importedPatient, existingPatient: $0) }) {
+                        // Patient with matching fields found
                         for importedTreatment in importedPatient.treatments {
                             if !patients[existingPatientIndex].treatments.contains(where: { $0.id == importedTreatment.id }) {
                                 // Treatment with same ID not found, append to existing patient's treatments
                                 patients[existingPatientIndex].treatments.append(importedTreatment)
                             }
                         }
+                        // Update other details of the existing patient
+                        patients[existingPatientIndex].updateDetails(from: importedPatient)
                     } else {
-                        // No existing patient with same phone number, append the imported patient
+                        // No existing patient with matching fields, append the imported patient
                         patients.append(importedPatient)
                     }
                 }
@@ -196,6 +198,14 @@ struct MainView: View {
             print("Error importing patients: \(error)")
         }
     }
+
+    private func existingPatientMatches(_ importedPatient: Patient, existingPatient: Patient) -> Bool {
+        // Compare phone number and, if phone number is empty, also compare name
+        return (!existingPatient.phone.isEmpty && existingPatient.phone == importedPatient.phone) ||
+               (existingPatient.phone.isEmpty && existingPatient.name == importedPatient.name)
+    }
+
+
 }
 
 
