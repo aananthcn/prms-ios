@@ -1,6 +1,7 @@
 import sys
 import openpyxl
 import json
+import uuid
 
 def read_treatment_sheet(workbook, patient_id):
     try:
@@ -23,7 +24,7 @@ def read_treatment_sheet(workbook, patient_id):
                 date = date.replace('.', '-')
 
             treatments.append({
-                "id": str(tid),
+                "id": str(uuid.uuid4()),
                 "dateString": date,
                 "dateFormat":"yyyy-MM-dd",
                 "complaint": complaint,
@@ -69,7 +70,7 @@ def read_excel(filename):
                 "email": email,
                 "address": address,
                 "gender": gender,
-                "id": patient_id,
+                "id": str(uuid.uuid4()),  # Generate UUID for patient ID,
                 "year": year,
                 "month": month,
                 "age": age,
@@ -80,7 +81,7 @@ def read_excel(filename):
             patient_data["treatments"] = patient_data["treatments"][1:]
 
             data.append(patient_data)
-            print(patient_data)
+            #print(patient_data)
         
         return data
     except Exception as e:
