@@ -31,7 +31,7 @@ def read_treatment_sheet(workbook, patient_id):
                 "prescription": prescription,
                 "doctor": {
                     "phone": "",
-                    "id": doctor,
+                    "id": str(uuid.uuid4()),
                     "name": doctor
                 }
             })
@@ -63,6 +63,9 @@ def read_excel(filename):
                 phone = ""
             if gender is None:
                 gender = ""
+            if name is None:
+                # no point in adding a patient without name
+                continue
 
             patient_data = {
                 "name": name,
