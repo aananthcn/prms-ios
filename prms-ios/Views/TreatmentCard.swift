@@ -23,19 +23,23 @@ struct TreatmentCard: View {
             HStack {
                 HStack {
                     Image(systemName: "calendar").foregroundColor(.blue)
+                        .font(.footnote)
                     Text(treatment.dateString).lineLimit(1)
+                        .font(.subheadline)
                 }
-                Spacer().frame(width: 20)
+                Spacer()
                 HStack {
                     Image(systemName: "stethoscope").foregroundColor(.blue)
+                        .font(.footnote)
                     Text(treatment.doctor.name)
                         .lineLimit(1)
                         .truncationMode(.tail)
                         .accessibilityLabel("Doctor Name")
+                        .font(.subheadline)
                 }
             }
         } // VStack
-        .padding(.horizontal, 0.1)
+        .padding(.horizontal, 4.0)
     }
 }
 

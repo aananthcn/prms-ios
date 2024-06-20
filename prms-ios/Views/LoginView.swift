@@ -41,7 +41,7 @@ struct LoginView: View {
                     
                     // Entry into MainView
                     NavigationLink(destination: MainView(patients: $patients, doctors: $doctors, currDoctorIndex: $selectedDoctorIndex)) {
-                        Text("Login").font(.headline)
+                        Text("Select Doctor").font(.headline)
                     }
                     Spacer()
                 } else {
