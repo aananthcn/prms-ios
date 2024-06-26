@@ -29,7 +29,7 @@ struct TreatmentListView: View {
                     }
                     return date1 > date2 // Sort in descending order
                 })) { treatment in
-                    NavigationLink(destination: TreatmentView(patient: $patient, treatment: .constant(treatment))) {
+                    NavigationLink(destination: TreatmentView(patient: $patient, treatment: $patient.treatments[patient.treatments.firstIndex(of: treatment)!])) {
                         TreatmentCard(treatment: treatment)
                     }
                 }

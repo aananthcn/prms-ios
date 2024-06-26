@@ -45,6 +45,8 @@ struct TreatmentAddView: View {
                     TextField("Enter the prescription.", text: $editedTreatment.prescription)
                         .frame(minHeight: 50)
                         .fixedSize(horizontal: false, vertical: true)
+                }
+                Section(header: Text("Doctor & Date")) {
                     Label("\(doctor.name)", systemImage: "stethoscope")
                     Label("\(getCurrentDateAsString())", systemImage: "calendar")
                 }
