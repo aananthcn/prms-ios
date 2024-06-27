@@ -16,13 +16,12 @@ struct TreatmentEditView: View {
         Form {
             Section(header: Text("Patient Details")) {
                 HStack {
-                    Image(systemName: "person").foregroundColor(.gray)
+                    if patient.gender == "Male" {
+                        Text("♂").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).foregroundColor(.gray)
+                    } else {
+                        Text("♀").font(.title).foregroundColor(.gray)
+                    }
                     Text("\(patient.name)").foregroundColor(.gray)
-                }
-                HStack {
-                    Image(systemName: "figure.dress.line.vertical.figure")
-                        .foregroundColor(.gray)
-                    Text("\(patient.gender)").foregroundColor(.gray)
                 }
                 HStack {
                     Image(systemName: "person.badge.clock").foregroundColor(.gray)

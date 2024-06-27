@@ -18,13 +18,12 @@ struct TreatmentView: View {
             List {
                 Section(header: Text("Patient Details")) {
                     HStack {
-                        Image(systemName: "person").foregroundColor(.blue)
+                        if patient.gender == "Male" {
+                            Text("♂").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        } else {
+                            Text("♀").font(.title).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        }
                         Text("\(patient.name)")
-                    }
-                    HStack {
-                        Image(systemName: "figure.dress.line.vertical.figure")
-                            .foregroundColor(.blue)
-                        Text("\(patient.gender)")
                     }
                     HStack {
                         Image(systemName: "person.badge.clock").foregroundColor(.blue)
@@ -38,8 +37,8 @@ struct TreatmentView: View {
                     Label("\(treatment.prescription)", systemImage: "ellipsis.bubble")
                 }
                 Section(header: Text("Doctor & Date")) {
-                    Label("\(treatment.doctor.name)", systemImage: "stethoscope")
                     Label("\(treatment.dateString)", systemImage: "calendar")
+                    Label("\(treatment.doctor.name)", systemImage: "stethoscope")
                 }
             }
             .navigationTitle("Treatment")
