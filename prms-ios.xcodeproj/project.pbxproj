@@ -27,6 +27,7 @@
 		034DA9EF2BDCB76400CE9B2C /* ExportFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DA9EE2BDCB76400CE9B2C /* ExportFileView.swift */; };
 		034DA9F32BDE015600CE9B2C /* prms-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 034DA9F22BDE015600CE9B2C /* prms-icon.png */; };
 		036C60FE2C27EC98003AD1F1 /* TreatmentEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036C60FD2C27EC98003AD1F1 /* TreatmentEditView.swift */; };
+		036C61002C2CF20D003AD1F1 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036C60FF2C2CF20D003AD1F1 /* AppInfo.swift */; };
 		038705F72BD387070082CF10 /* DoctorsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038705F62BD387070082CF10 /* DoctorsStore.swift */; };
 		038705F92BD3B2540082CF10 /* DoctorAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038705F82BD3B2540082CF10 /* DoctorAddView.swift */; };
 		038705FB2BD406BE0082CF10 /* PatientAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038705FA2BD406BE0082CF10 /* PatientAddView.swift */; };
@@ -58,6 +59,7 @@
 		034DA9F22BDE015600CE9B2C /* prms-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prms-icon.png"; sourceTree = "<group>"; };
 		034DA9F42BDE0D5900CE9B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		036C60FD2C27EC98003AD1F1 /* TreatmentEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentEditView.swift; sourceTree = "<group>"; };
+		036C60FF2C2CF20D003AD1F1 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		038705F62BD387070082CF10 /* DoctorsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsStore.swift; sourceTree = "<group>"; };
 		038705F82BD3B2540082CF10 /* DoctorAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAddView.swift; sourceTree = "<group>"; };
 		038705FA2BD406BE0082CF10 /* PatientAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientAddView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				03D31F5B2BCCF0130077C7FE /* Patient.swift */,
 				0331F0B92BD142BC003CFBB5 /* PatientsStore.swift */,
 				0325718E2BD4CA980041B2B8 /* Treatment.swift */,
+				036C60FF2C2CF20D003AD1F1 /* AppInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */,
 				0331F0C02BD2D6B5003CFBB5 /* DoctorEditView.swift in Sources */,
 				0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */,
+				036C61002C2CF20D003AD1F1 /* AppInfo.swift in Sources */,
 				038705FB2BD406BE0082CF10 /* PatientAddView.swift in Sources */,
 				03D2851C2BCD94DD001C522C /* MainView.swift in Sources */,
 				038705F72BD387070082CF10 /* DoctorsStore.swift in Sources */,
@@ -384,7 +388,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"prms-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 47WW2WBH3M;
 				ENABLE_PREVIEWS = YES;
@@ -402,7 +406,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "aananth.prms-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -419,7 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"prms-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 47WW2WBH3M;
 				ENABLE_PREVIEWS = YES;
@@ -437,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "aananth.prms-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

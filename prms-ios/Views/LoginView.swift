@@ -23,10 +23,17 @@ struct LoginView: View {
         NavigationStack {
             VStack {
                 if !doctors.isEmpty {
+                    // Add a Text view to display the version information
+                    Text("Version \(AppInfo.version) (build:\(AppInfo.build))")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
                     Spacer()
                     Image(systemName: "stethoscope")
                         .imageScale(.large)
-                        .foregroundStyle(.tint)
+                        //.foregroundStyle(.tint)
+                        .foregroundColor(.yellow)
+                    
+                    // Doctor selected here will be used in all data entries
                     Picker("Doctors", selection: $selectedDoctorIndex) {
                         ForEach(doctors.indices, id: \.self) { index in
                             Text(doctors[index].name) // Display doctor's name in the Picker
