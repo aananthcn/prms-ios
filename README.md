@@ -1,2 +1,2 @@
-# prms-ios
+# prms
 Patient Record Management System
