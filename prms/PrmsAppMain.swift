@@ -1,5 +1,5 @@
 //
-//  prms_iosApp.swift
+//  PrmsAppMain.swift
 //  prms
 //
 //  Created by Aananth C N on 14/04/24.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 @main
-struct prms_iosApp: App {
+struct PrmsAppMain: App {
     @StateObject private var dstore = DoctorsStore()
     @StateObject private var pstore = PatientsStore()
 

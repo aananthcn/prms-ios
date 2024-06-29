@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC7D2BCC4A3700A25768 /* prms_iosApp.swift */; };
+		0306BC7E2BCC4A3700A25768 /* PrmsAppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC7D2BCC4A3700A25768 /* PrmsAppMain.swift */; };
 		0306BC802BCC4A3700A25768 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306BC7F2BCC4A3700A25768 /* FirstScreen.swift */; };
 		0306BC822BCC4A3800A25768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC812BCC4A3800A25768 /* Assets.xcassets */; };
 		0306BC852BCC4A3800A25768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0306BC7A2BCC4A3700A25768 /* prms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prms.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0306BC7D2BCC4A3700A25768 /* prms_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prms_iosApp.swift; sourceTree = "<group>"; };
+		0306BC7D2BCC4A3700A25768 /* PrmsAppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrmsAppMain.swift; sourceTree = "<group>"; };
 		0306BC7F2BCC4A3700A25768 /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 		0306BC812BCC4A3800A25768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0306BC842BCC4A3800A25768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				0306BC932BCC7AF400A25768 /* Resources */,
 				0306BC8D2BCC4A9E00A25768 /* Models */,
 				0306BC8C2BCC4A7200A25768 /* Views */,
-				0306BC7D2BCC4A3700A25768 /* prms_iosApp.swift */,
+				0306BC7D2BCC4A3700A25768 /* PrmsAppMain.swift */,
 				0306BC812BCC4A3800A25768 /* Assets.xcassets */,
 				0306BC832BCC4A3800A25768 /* Preview Content */,
 			);
@@ -178,7 +178,7 @@
 			dependencies = (
 			);
 			name = prms;
-			productName = "prms";
+			productName = prms;
 			productReference = 0306BC7A2BCC4A3700A25768 /* prms.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -237,7 +237,7 @@
 				0306BC802BCC4A3700A25768 /* FirstScreen.swift in Sources */,
 				03D31F5C2BCCF0130077C7FE /* Patient.swift in Sources */,
 				0331F0C02BD2D6B5003CFBB5 /* DoctorEditView.swift in Sources */,
-				0306BC7E2BCC4A3700A25768 /* prms_iosApp.swift in Sources */,
+				0306BC7E2BCC4A3700A25768 /* PrmsAppMain.swift in Sources */,
 				036C61002C2CF20D003AD1F1 /* AppInfo.swift in Sources */,
 				038705FB2BD406BE0082CF10 /* PatientAddView.swift in Sources */,
 				03D2851C2BCD94DD001C522C /* MainView.swift in Sources */,
